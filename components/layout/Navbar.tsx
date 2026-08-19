@@ -36,8 +36,7 @@ export default function Navbar() {
         right: 0,
         zIndex: 50,
         pointerEvents: "none",
-        padding: isDock ? "0.75rem 0" : "1.25rem 0",
-        transition: "padding 0.25s ease",
+        padding: "0.75rem 0",
       }}
     >
       <div
@@ -64,11 +63,9 @@ export default function Navbar() {
               ? "1px solid var(--hairline-strong)"
               : "1px solid transparent",
             borderRadius: "12px",
-            padding: isDock
-              ? "0.6rem 1.25rem"
-              : "0",
+            padding: "0.6rem 1.25rem",
             transition:
-              "background 0.25s ease, border-color 0.25s ease, padding 0.25s ease, backdrop-filter 0.25s ease",
+              "background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease",
           }}
         >
           {/* Brand */}

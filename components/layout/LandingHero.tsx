@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Grainient from "@/components/backgrounds/Grainient";
+import NoiseOverlay from "@/components/animations/NoiseOverlay";
+import WireframeBall from "@/components/backgrounds/WireframeBall";
 import { getLabInfo, getDistinctVenueCount } from "@/lib/data";
 
 export default function LandingHero() {
@@ -22,7 +24,7 @@ export default function LandingHero() {
         justifyContent: "center",
       }}
     >
-      {/* ─── Background Grainient WebGL layer with bottom dissolve mask ───── */}
+      {/* ─── Layer 0: Background Grainient WebGL layer (faster, calm) ────── */}
       <div
         aria-hidden
         style={{
@@ -36,36 +38,82 @@ export default function LandingHero() {
             "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
         }}
       >
-        <Grainient />
+        <Grainient timeSpeed={0.6} warpSpeed={2.5} />
       </div>
 
-      {/* ─── Dark scrim overlay for guaranteed text legibility ─────────────── */}
+      {/* ─── Layer 1a: Animated film-grain living noise overlay ────────────── */}
+      <NoiseOverlay opacity={0.075} />
+
+      {/* ─── Layer 1b: Black Wireframe Ball with dark radial halo ─────────── */}
+      <div
+        aria-hidden
+        className="hero-wireframe-container"
+        style={{
+          position: "absolute",
+          right: "clamp(2rem, 8vw, 7rem)",
+          top: "45%",
+          transform: "translateY(-50%)",
+          width: "clamp(260px, 28vw, 360px)",
+          height: "clamp(260px, 28vw, 360px)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+      >
+        {/* Soft black radial halo */}
+        <div
+          style={{
+            position: "absolute",
+            inset: "-15%",
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(5, 8, 10, 0.75) 0%, rgba(5, 8, 10, 0.35) 45%, transparent 72%)",
+            pointerEvents: "none",
+          }}
+        />
+        <WireframeBall
+          shape="icosahedron"
+          speed={0.35}
+          wobble={0.12}
+          edgeColor="#05080a"
+          edgeThickness={0.85}
+          edgeGlow={0.4}
+          vertexColor="#05080a"
+          vertexSize={0.8}
+          vertexGlow={0.4}
+          depthColor="#020406"
+          depthFade={0.3}
+          depthTint={0.4}
+          opacity={0.92}
+        />
+      </div>
+
+      {/* ─── Layer 2: Dark scrim overlay for guaranteed text legibility ─────── */}
       <div
         aria-hidden
         style={{
           position: "absolute",
           inset: 0,
-          zIndex: 1,
+          zIndex: 2,
           pointerEvents: "none",
           background:
             "linear-gradient(180deg, rgba(11, 15, 18, 0.20) 0%, rgba(11, 15, 18, 0.50) 45%, rgba(16, 22, 26, 0.90) 80%, #10161a 100%)",
         }}
       />
 
-      {/* ─── Hero content (clean, unboxed typography) ──────────────────────── */}
+      {/* ─── Layer 3: Hero content (elevated, unboxed typography) ─────────── */}
       <div
         className="container"
         style={{
           position: "relative",
-          zIndex: 2,
-          paddingTop: "4.5rem",
+          zIndex: 3,
+          paddingTop: "2.25rem",
           paddingBottom: "2rem",
         }}
       >
         <div
           className="fade-up-entry"
           style={{
-            maxWidth: "780px",
+            maxWidth: "760px",
             display: "flex",
             flexDirection: "column",
             gap: "1.5rem",

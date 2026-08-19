@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import type { Member, Faculty, PersonLinks } from "@/lib/types";
 
@@ -35,6 +38,8 @@ export default function PersonCard({
   person: Member | Faculty;
   featured?: boolean;
 }) {
+  const [imgSrc, setImgSrc] = useState(person.photo);
+
   if (featured) {
     const f = person as Faculty;
     return (
@@ -59,11 +64,12 @@ export default function PersonCard({
           }}
         >
           <Image
-            src={f.photo}
+            src={imgSrc}
             alt={f.name}
             fill
             style={{ objectFit: "cover", objectPosition: f.photoPosition }}
             sizes="(max-width: 768px) 100vw, 260px"
+            onError={() => setImgSrc("/images/people/placeholder.svg")}
           />
         </div>
 
@@ -143,11 +149,12 @@ export default function PersonCard({
         }}
       >
         <Image
-          src={m.photo}
+          src={imgSrc}
           alt={m.name}
           fill
           style={{ objectFit: "cover", objectPosition: m.photoPosition }}
           sizes="(max-width: 640px) 50vw, 260px"
+          onError={() => setImgSrc("/images/people/placeholder.svg")}
         />
       </div>
 

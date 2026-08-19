@@ -1,6 +1,6 @@
 ---
 name: SARCS Lab — Calm Developer System
-description: A calm, minimal, spacious research-lab website modeled on a modern developer aesthetic, featuring a 16:9 scoped film-grain gradient hero window, dynamic dock navigation, pinned double-scroll publications with ambient AsciiWaves, Inter typography, and flat hairline surfaces with backdrop blur.
+description: A calm, minimal, spacious research-lab website modeled on a modern developer aesthetic, featuring a 16:9 scoped film-grain gradient hero window with living noise overlay, rotating black wireframe polyhedron, dynamic dock navigation, pinned double-scroll publications with ambient AsciiWaves, Inter typography, and flat hairline surfaces with backdrop blur.
 colors:
   substrate: "#10161a"
   substrate-trans: "rgba(16, 22, 26, 0.65)"
@@ -82,7 +82,10 @@ components:
 Modeled on a modern, quiet developer aesthetic (referencing the DeepSeek Harness developer landing). The first thing visitors land on is spacious, breathable, and unboxed.
 
 Key patterns:
-1. **Scoped 16:9 Hero Grainient:** The WebGL film-grain gradient background is scoped strictly to a 16:9 viewport window on the homepage with an overlaid dark scrim for guaranteed text contrast and a seamless bottom dissolve mask into the substrate ground. All other pages render on a solid substrate background.
+1. **Scoped 16:9 Hero with Living Grain & Rotating Polyhedron:**
+   - **Living Grain & Faster Grainient:** The WebGL film-grain gradient background runs at `timeSpeed={0.6}` and `warpSpeed={2.5}` for a visibly alive, calm motion, overlaid with an animated SVG `feTurbulence` noise layer (`NoiseOverlay`) at low opacity (~0.075) with discrete CSS keyframe jitter.
+   - **Black Wireframe Ball:** A custom raymarched wireframe icosahedron (`WireframeBall`) built with `ogl` is positioned to the right of the hero title, rotating slowly with glowing edges/vertices and a dark radial halo silhouette.
+   - **Seamless Dissolve Mask:** Dissolves cleanly into the `#10161a` substrate ground.
 2. **Transparent Top Nav to Wide Sticky Pill Dock:** Top navigation links float in individual hairline pill boxes with backdrop blur over the hero, condensing smoothly into a full-width sticky container dock on scroll.
 3. **Double-Scroll Publications with Ambient AsciiWaves:** On the homepage, the Recent Publications section pins to the viewport as the user scrolls, with publications left-centered and an ambient AsciiWaves character wave animation alongside.
 4. **Clean Typography & Elevated Contrast:** Inter is used for all primary text, while JetBrains Mono is strictly reserved for metadata. Colors are tuned to exceed WCAG AA/AAA contrast ratios (Primary >= 16:1, Secondary >= 12:1, Muted >= 7:1).
@@ -109,7 +112,7 @@ Key patterns:
 ## Do's and Don'ts
 
 ### Do:
-- **Do** scope WebGL Grainient to the home 16:9 hero window and keep other pages on solid substrate.
+- **Do** scope WebGL Grainient and NoiseOverlay to the home 16:9 hero window and keep other pages on solid substrate.
 - **Do** ensure all text colors exceed WCAG contrast thresholds against actual rendered backgrounds.
 - **Do** maintain smooth transitions for the floating-to-dock navigation.
 - **Do** provide non-pinned static fallbacks for double-scroll on mobile and for `prefers-reduced-motion`.

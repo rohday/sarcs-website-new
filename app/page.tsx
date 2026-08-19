@@ -29,6 +29,7 @@ export default function HomePage() {
     <div>
       <LandingHero />
 
+      {/* ─── About / Mission section (no redundant name repetition) ──────── */}
       <Section
         style={{
           paddingTop: "clamp(3rem, 6vw, 5rem)",
@@ -37,8 +38,8 @@ export default function HomePage() {
       >
         <div className="mission-split">
           <div>
-            <h2 className="type-display-lg" style={{ margin: "0 0 1.5rem" }}>
-              {labInfo.fullName}
+            <h2 className="type-display-lg" style={{ margin: "0 0 1rem" }}>
+              About the laboratory
             </h2>
           </div>
           <div

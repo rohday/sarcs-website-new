@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-19T23:55:00Z",
+  "generatedAt": "2026-08-20T00:25:00Z",
   "title": "Design System: SARCS Lab — Calm Developer System",
   "extensions": {
     "colorMeta": {
@@ -60,7 +60,7 @@
       {
         "name": "dock-transition",
         "value": "0.25s ease",
-        "purpose": "Smooth transition between floating hero nav and sticky pill dock."
+        "purpose": "Smooth transition between floating hero nav and sticky wide dock."
       },
       {
         "name": "double-scroll",
@@ -86,9 +86,9 @@
       "name": "Floating Nav / Sticky Dock",
       "kind": "custom",
       "refersTo": "nav-dock",
-      "description": "Floating pill buttons on hero condensing into a centered sticky pill dock on scroll.",
+      "description": "Floating pill buttons on hero condensing into a wide sticky container dock on scroll.",
       "html": "<nav class=\"nav-dock\"><a class=\"chip\">Research</a></nav>",
-      "css": ".nav-dock { display: flex; align-items: center; gap: 0.5rem; background: rgba(16,22,26,0.85); border: 1px solid rgba(233,237,241,0.28); border-radius: 999px; padding: 0.35rem 0.6rem; }"
+      "css": ".nav-dock { display: flex; align-items: center; gap: 0.5rem; background: rgba(16,22,26,0.65); border: 1px solid rgba(233,237,241,0.14); border-radius: 12px; padding: 0.6rem 1.25rem; }"
     },
     {
       "name": "Pinned Publications Double-Scroll",
@@ -101,11 +101,12 @@
   ],
   "narrative": {
     "northStar": "Calm Developer System",
-    "overview": "Modeled on a modern, quiet developer aesthetic referencing DeepSeek Harness. Features a scoped 16:9 hero Grainient WebGL window, dynamic floating-to-dock navigation, pinned double-scroll publications, elevated text contrast, and a spread-out multi-column footer.",
+    "overview": "Modeled on a modern, quiet developer aesthetic referencing DeepSeek Harness. Features a scoped 16:9 hero Grainient WebGL window with bottom dissolve fade, wide dynamic floating-to-dock navigation, pinned double-scroll publications, unboxed typography, elevated text contrast, and a spread-out multi-column footer.",
     "keyCharacteristics": [
-      "16:9 hero Grainient WebGL window with dark scrim overlay.",
+      "16:9 hero Grainient WebGL window with dark scrim overlay and smooth bottom dissolve.",
+      "Unboxed hero typography directly over the subtle gradient background.",
       "Solid substrate background on all non-home pages without WebGL mounting.",
-      "Floating pill nav transitioning to sticky condensed pill dock on scroll.",
+      "Floating pill nav transitioning to wide sticky container dock on scroll.",
       "Pinned double-scroll Recent Publications section with static mobile fallback.",
       "Elevated WCAG AA/AAA text contrast across all elements."
     ],
@@ -118,7 +119,8 @@
     "donts": [
       "Don't mount WebGL canvas on non-home pages.",
       "Don't use glow, glassmorphism, backdrop-blur, gradient text, or drop shadows.",
-      "Don't place artificial labels or eyebrows above headings."
+      "Don't place artificial labels or eyebrows above headings.",
+      "Don't enclose hero text in heavy card boxes."
     ]
   }
 }

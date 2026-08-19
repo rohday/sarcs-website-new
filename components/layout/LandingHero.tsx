@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Grainient from "@/components/backgrounds/Grainient";
-import HalftoneReveal from "@/components/hero/HalftoneReveal";
 import { getLabInfo, getDistinctVenueCount } from "@/lib/data";
 
 export default function LandingHero() {
@@ -15,8 +14,8 @@ export default function LandingHero() {
         position: "relative",
         width: "100%",
         aspectRatio: "16/9",
-        minHeight: "600px",
-        maxHeight: "920px",
+        minHeight: "560px",
+        maxHeight: "880px",
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
@@ -32,51 +31,44 @@ export default function LandingHero() {
           zIndex: 0,
           pointerEvents: "none",
           maskImage:
-            "linear-gradient(to bottom, black 0%, black 75%, transparent 100%)",
+            "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, black 0%, black 75%, transparent 100%)",
+            "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
         }}
       >
         <Grainient />
       </div>
 
-      {/* ─── Halftone cursor interactive hue reveal overlay ───────────────── */}
-      <HalftoneReveal style={{ zIndex: 1 }} />
-
-      {/* ─── Dark scrim overlay for guaranteed legibility ──────────────────── */}
+      {/* ─── Dark scrim overlay for guaranteed text legibility ─────────────── */}
       <div
         aria-hidden
         style={{
           position: "absolute",
           inset: 0,
-          zIndex: 2,
+          zIndex: 1,
           pointerEvents: "none",
           background:
-            "linear-gradient(180deg, rgba(11, 15, 18, 0.25) 0%, rgba(11, 15, 18, 0.55) 50%, rgba(16, 22, 26, 0.95) 85%, #10161a 100%)",
+            "linear-gradient(180deg, rgba(11, 15, 18, 0.20) 0%, rgba(11, 15, 18, 0.50) 45%, rgba(16, 22, 26, 0.90) 80%, #10161a 100%)",
         }}
       />
 
-      {/* ─── Hero content ─────────────────────────────────────────────────── */}
+      {/* ─── Hero content (clean, unboxed typography) ──────────────────────── */}
       <div
         className="container"
         style={{
           position: "relative",
-          zIndex: 3,
-          paddingTop: "4rem",
+          zIndex: 2,
+          paddingTop: "4.5rem",
           paddingBottom: "2rem",
         }}
       >
         <div
           className="fade-up-entry"
           style={{
-            maxWidth: "760px",
+            maxWidth: "780px",
             display: "flex",
             flexDirection: "column",
             gap: "1.5rem",
-            padding: "clamp(1.5rem, 3vw, 2.5rem)",
-            background: "rgba(16, 22, 26, 0.55)",
-            border: "1px solid var(--hairline)",
-            borderRadius: "6px",
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
@@ -127,8 +119,8 @@ export default function LandingHero() {
             style={{
               display: "flex",
               flexWrap: "wrap",
-              gap: "clamp(2rem, 5vw, 4rem)",
-              paddingTop: "1.5rem",
+              gap: "clamp(2.5rem, 6vw, 4.5rem)",
+              paddingTop: "1.75rem",
               marginTop: "0.25rem",
               borderTop: "1px solid var(--hairline)",
             }}
@@ -138,7 +130,7 @@ export default function LandingHero() {
                 className="tnum"
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "1.5rem",
+                  fontSize: "1.625rem",
                   fontWeight: 600,
                   color: "var(--text-primary)",
                   lineHeight: 1.2,
@@ -163,7 +155,7 @@ export default function LandingHero() {
                 className="tnum"
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "1.5rem",
+                  fontSize: "1.625rem",
                   fontWeight: 600,
                   color: "var(--text-primary)",
                   lineHeight: 1.2,

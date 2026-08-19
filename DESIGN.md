@@ -47,6 +47,7 @@ typography:
 rounded:
   sm: "3px"
   md: "4px"
+  dock: "12px"
   pill: "999px"
 spacing:
   xs: "0.5rem"
@@ -78,14 +79,15 @@ components:
 
 **Creative North Star: "Calm Developer System"**
 
-Modeled on a modern, quiet developer aesthetic (referencing the DeepSeek Harness developer landing). The first thing visitors land on is spacious, breathable, and clear.
+Modeled on a modern, quiet developer aesthetic (referencing the DeepSeek Harness developer landing). The first thing visitors land on is spacious, breathable, and unboxed.
 
 Key patterns:
-1. **Scoped 16:9 Hero Grainient:** The WebGL film-grain gradient background is scoped strictly to a 16:9 viewport window on the homepage with an overlaid dark scrim for guaranteed text contrast. All other pages render on a solid substrate background.
-2. **Transparent Top Nav to Sticky Pill Dock:** Top navigation links float in individual hairline pill boxes over the hero, condensing smoothly into a centered sticky pill dock on scroll.
+1. **Scoped 16:9 Hero Grainient:** The WebGL film-grain gradient background is scoped strictly to a 16:9 viewport window on the homepage with an overlaid dark scrim for guaranteed text contrast and a seamless bottom dissolve mask into the substrate ground. All other pages render on a solid substrate background.
+2. **Transparent Top Nav to Wide Sticky Pill Dock:** Top navigation links float in individual hairline pill boxes over the hero, condensing smoothly into a full-width sticky container dock on scroll.
 3. **Double-Scroll Publications:** On the homepage, the Recent Publications section pins to the viewport as the user scrolls, smoothly translating the newest 8 publications before unlocking into subsequent sections.
 4. **Clean Typography & Elevated Contrast:** Inter is used for all primary text, while JetBrains Mono is strictly reserved for metadata. Colors are tuned to exceed WCAG AA/AAA contrast ratios (Primary >= 16:1, Secondary >= 12:1, Muted >= 7:1).
 5. **Spread-out Multi-Column Footer:** Broad multi-column layout separating lab description, navigation index, contact/address, and external profiles.
+6. **Smooth Scrolling:** Site-wide smooth scrolling enabled.
 
 ## Colors
 
@@ -115,3 +117,4 @@ Key patterns:
 - **Don't** mount WebGL canvas on non-home pages.
 - **Don't** use glow, glassmorphism, backdrop-blur, gradient text, or drop shadows.
 - **Don't** place artificial labels or eyebrows above headings.
+- **Don't** enclose hero text in heavy card boxes.

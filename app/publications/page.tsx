@@ -1,8 +1,3 @@
-/**
- * Publications page — the paper archive die.
- * Year groups act as layer strips; every publication is a logged record
- * with edge code, authors, venue, and routed links.
- */
 import type { Metadata } from "next";
 import { getPublications, getLabInfo } from "@/lib/data";
 import PageHeader from "@/components/ui/PageHeader";
@@ -35,7 +30,6 @@ export default function PublicationsPage() {
   return (
     <div>
       <PageHeader
-        dieLabel="Paper archive · complete record"
         title="Publications"
         description="Peer-reviewed journal articles, conference papers, and preprints, grouped by year."
       >
@@ -43,15 +37,14 @@ export default function PublicationsPage() {
           href={labInfo.socialLinks.googleScholar}
           target="_blank"
           rel="noopener noreferrer"
-          className="pin-link"
+          className="text-link"
         >
-          <span className="via" aria-hidden />
-          Google Scholar profile
+          Google Scholar profile <span className="arrow" aria-hidden>→</span>
         </a>
       </PageHeader>
 
       <Section style={{ paddingBottom: "clamp(3rem, 6vw, 5rem)" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}>
           {years.map((year) => (
             <div key={year}>
               <div
@@ -64,9 +57,21 @@ export default function PublicationsPage() {
                   marginBottom: "0.25rem",
                 }}
               >
-                <span className="type-mono tnum" style={{ fontSize: "1rem", color: "var(--metal)" }}>{year}</span>
-                <span className="type-mono" style={{ fontSize: "0.625rem" }}>
-                  {byYear[year].length} RECORD{byYear[year].length === 1 ? "" : "S"}
+                <span
+                  className="type-mono tnum"
+                  style={{
+                    fontSize: "1.125rem",
+                    fontWeight: 600,
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  {year}
+                </span>
+                <span
+                  className="type-mono"
+                  style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}
+                >
+                  {byYear[year].length} {byYear[year].length === 1 ? "publication" : "publications"}
                 </span>
               </div>
               <div>

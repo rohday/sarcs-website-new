@@ -1,7 +1,7 @@
 export const CONTRACT = `impeccable-direction 0cf70ea1
-THESIS: SARCS is a lab whose homepage is its floorplan — visitors read research blocks the way a chip designer reads a die. Refuses the centered stock-photo hero and the three-card grid.
-OWN-WORLD: Silicon materials on deep substrate: oxide white #f2efe6, metal blue #7fb3d5, interconnect gold #c9a35c, alarm red #e5484d on ground #101319. Hairline mask grids, routed pin traces, mono die labels. Type: Archivo grotesk for text and display, JetBrains Mono for annotations.
-STORY: Visitor lands on the die, reads SARCS and its full name, believes credible-and-energetic research institution; scrolls placed research blocks; acts by entering research or reaching the PI.
-FIRST VIEWPORT: Full-viewport die image under a floorplan overlay: SARCS die label top-left, six research blocks placed as regions with routed pins and trigger markers, pad ring along the bottom carrying lab stats; nav above; one primary action on the research pin.
-FORM: The Silicon Floorplan, position 1 of the grounded list, seed 0cf70ea1.
+THESIS: A calm, minimal, spacious research-lab landing for SARCS Lab that refuses clutter, cyber-hacker chrome, and terminal motifs.
+OWN-WORLD: Deep blue-gray substrate (#10161a, #171d22, #0b0f12), steel-blue accent (#6ba3bf), cool slate text (#e9edf1, #aab6c0, #7d8a94), film grain on animated gradient background, Inter for clean developer typography, JetBrains Mono only for metadata.
+STORY: Visitor lands on a spacious, breathable hero, grasps the lab's mission in one line, reviews key research stats and entry points, and navigates easily to people, publications, and projects.
+FIRST VIEWPORT: Spacious brand wordmark + lab name, one-line mission statement, quiet text navigation links, and a single quiet stats row (publications, citations, h-index, established).
+FORM: Calm instrument, seed 0cf70ea1.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance`;

@@ -1,8 +1,3 @@
-/**
- * Media page — news strip + photo gallery die.
- * News entries log lab events; the gallery shows real frames with
- * edge codes and captions. Data-driven from news.json / media.json.
- */
 import type { Metadata } from "next";
 import { getMedia, getNews } from "@/lib/data";
 import PageHeader from "@/components/ui/PageHeader";
@@ -11,7 +6,8 @@ import MediaGallery from "@/components/cards/MediaGallery";
 
 export const metadata: Metadata = {
   title: "Media",
-  description: "News and photo gallery from the SARCS Lab at IIIT Hyderabad — conferences, events, and lab life.",
+  description:
+    "News and photo gallery from the SARCS Lab at IIIT Hyderabad — conferences, events, and lab life.",
 };
 
 export default function MediaPage() {
@@ -21,39 +17,70 @@ export default function MediaPage() {
   return (
     <div>
       <PageHeader
-        dieLabel="Dispatches · news and frames"
-        title="Media"
-        description="Paper acceptances, conference appearances, and life inside the lab."
+        title="Media &amp; Dispatches"
+        description="Paper acceptances, conference appearances, and life inside the laboratory."
       />
 
-      {/* News strip */}
       {news.length > 0 && (
         <Section style={{ paddingBottom: "clamp(3rem, 6vw, 5rem)" }}>
-          <p className="die-label" style={{ marginBottom: "1.25rem" }}>News log</p>
+          <h2
+            className="type-display-md"
+            style={{ margin: "0 0 1.5rem" }}
+          >
+            News Log
+          </h2>
           <div>
             {news.map((item) => (
               <article
                 key={item.id}
                 style={{
-                  padding: "1.1rem 0",
+                  padding: "1.25rem 0",
                   borderBottom: "1px solid var(--hairline)",
                 }}
                 className="pub-strip"
               >
-                <span className="type-mono tnum" style={{ fontSize: "0.6875rem", whiteSpace: "nowrap" }}>
-                  {new Date(item.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+                <span
+                  className="type-mono tnum"
+                  style={{ fontSize: "0.75rem", whiteSpace: "nowrap" }}
+                >
+                  {new Date(item.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
                 </span>
                 <div>
-                  <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1rem", fontWeight: 600, color: "var(--oxide)", margin: "0 0 0.3rem", lineHeight: 1.45 }}>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "1.0625rem",
+                      fontWeight: 600,
+                      color: "var(--text-primary)",
+                      margin: "0 0 0.35rem",
+                      lineHeight: 1.4,
+                    }}
+                  >
                     {item.title}
                   </h3>
-                  <p style={{ fontSize: "0.8125rem", color: "var(--text-secondary)", margin: 0, lineHeight: 1.55 }}>
+                  <p
+                    style={{
+                      fontSize: "0.875rem",
+                      color: "var(--text-secondary)",
+                      margin: 0,
+                      lineHeight: 1.6,
+                    }}
+                  >
                     {item.description}
                   </p>
                 </div>
-                <a href={item.link} target="_blank" rel="noopener noreferrer" className="pin-link" style={{ fontSize: "0.625rem", whiteSpace: "nowrap" }}>
-                  <span className="via" aria-hidden />
-                  Read
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-link"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  Read <span className="arrow" aria-hidden>→</span>
                 </a>
               </article>
             ))}
@@ -61,9 +88,13 @@ export default function MediaPage() {
         </Section>
       )}
 
-      {/* Gallery */}
       <Section style={{ paddingBottom: "clamp(3rem, 6vw, 5rem)" }}>
-        <p className="die-label" style={{ marginBottom: "1.25rem" }}>Frames from the lab</p>
+        <h2
+          className="type-display-md"
+          style={{ margin: "0 0 1.5rem" }}
+        >
+          Gallery
+        </h2>
         <MediaGallery items={media} />
       </Section>
     </div>

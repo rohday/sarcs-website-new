@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Archivo, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { getLabInfo } from "@/lib/data";
 import { CONTRACT } from "@/lib/direction-contract";
 
-const archivo = Archivo({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-archivo",
+  variable: "--font-inter",
 });
 
 const jbmono = JetBrains_Mono({
@@ -53,21 +53,33 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${archivo.variable} ${jbmono.variable} min-h-screen flex flex-col`}>
-        {/* Direction contract — first child of body, survives static export (grep for 0cf70ea1 in /out) */}
+      <body
+        className={`${inter.variable} ${jbmono.variable} min-h-screen flex flex-col`}
+      >
+        {/* Direction contract — first child of body, survives static export */}
         <span
           aria-hidden
           style={{ display: "none" }}
           dangerouslySetInnerHTML={{ __html: `<!-- ${CONTRACT} -->` }}
         />
 
-        <Navbar />
+        <div
+          style={{
+            position: "relative",
+            zIndex: 1,
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "100vh",
+          }}
+        >
+          <Navbar />
 
-        <main className="flex-1" style={{ position: "relative" }}>
-          {children}
-        </main>
+          <main className="flex-1" style={{ position: "relative" }}>
+            {children}
+          </main>
 
-        <Footer labInfo={getLabInfo()} />
+          <Footer labInfo={getLabInfo()} />
+        </div>
       </body>
     </html>
   );

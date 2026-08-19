@@ -91,3 +91,11 @@ export function getNews(): NewsItem[] {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 }
+
+/** Returns count of distinct publication venues */
+export function getDistinctVenueCount(): number {
+  const pubs = getPublications();
+  const venues = new Set(pubs.map((p) => p.venue).filter(Boolean));
+  return venues.size;
+}
+

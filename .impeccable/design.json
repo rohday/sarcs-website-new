@@ -1,104 +1,124 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-19T22:10:00Z",
-  "title": "Design System: SARCS Lab — The Silicon Floorplan",
+  "generatedAt": "2026-08-19T23:55:00Z",
+  "title": "Design System: SARCS Lab — Calm Developer System",
   "extensions": {
     "colorMeta": {
-      "substrate": { "role": "neutral", "displayName": "Deep Silicon", "canonical": "#101319", "tonalRamp": ["#0c0e13", "#101319", "#161a23", "#1c222c", "#242c38", "#2e3846", "#3a4556", "#48546a"] },
-      "oxide": { "role": "neutral", "displayName": "Oxide White", "canonical": "#f2efe6", "tonalRamp": ["#4a4a42", "#6b6a60", "#8e8c80", "#b0ae9f", "#c9c6b7", "#dddacb", "#ece9dd", "#f2efe6"] },
-      "metal": { "role": "secondary", "displayName": "Metal Blue", "canonical": "#7fb3d5", "tonalRamp": ["#1d2a35", "#2a3d4c", "#37526a", "#46698a", "#5682aa", "#6a9bc2", "#7fb3d5", "#9ec9e6"] },
-      "interconnect": { "role": "primary", "displayName": "Interconnect Gold", "canonical": "#c9a35c", "tonalRamp": ["#33291a", "#4a3b23", "#634f2c", "#7d6536", "#987c41", "#b28f4d", "#c9a35c", "#e0bd7d"] },
-      "alarm": { "role": "tertiary", "displayName": "Alarm Red", "canonical": "#e5484d", "tonalRamp": ["#331013", "#4a161b", "#631d23", "#7d262d", "#982f37", "#b33941", "#e5484d", "#ef7276"] }
+      "substrate": {
+        "role": "neutral",
+        "displayName": "Substrate Base",
+        "canonical": "#10161a",
+        "tonalRamp": ["#0b0f12", "#10161a", "#171d22", "#1e262c", "#273138", "#323d45", "#3e4a54", "#4b5964"]
+      },
+      "textPrimary": {
+        "role": "neutral",
+        "displayName": "Cool Slate Primary",
+        "canonical": "#f0f4f8",
+        "tonalRamp": ["#4a5056", "#687078", "#8b949c", "#aab6c0", "#cbd5e1", "#dbe4ec", "#f0f4f8", "#ffffff"]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Steel Blue High-Contrast",
+        "canonical": "#7ec1e0",
+        "tonalRamp": ["#1b2d36", "#2c4552", "#3b5c6d", "#4d7a8f", "#5b9ab9", "#7ec1e0", "#9ed0e6", "#c2e3f2"]
+      },
+      "alarm": {
+        "role": "tertiary",
+        "displayName": "Alarm Red",
+        "canonical": "#e5484d",
+        "tonalRamp": ["#331013", "#4a161b", "#631d23", "#7d262d", "#982f37", "#b33941", "#e5484d", "#ef7276"]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "The SARCS wordmark. One per page, hero only." },
-      "headline": { "displayName": "Headline", "purpose": "Page titles and major statements." },
-      "title": { "displayName": "Title", "purpose": "Block titles and card headings." },
-      "body": { "displayName": "Body", "purpose": "Prose, max measure 72ch." },
-      "label": { "displayName": "Label", "purpose": "Die labels, cell codes, stats, dates, pad text." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero and major headlines using Inter."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings using Inter."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles and subsection headers using Inter."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Standard prose and descriptions using Inter."
+      },
+      "metadata": {
+        "displayName": "Metadata",
+        "purpose": "Dates, counts, and small tags using JetBrains Mono."
+      }
     },
     "motion": [
-      { "name": "trace-draw", "value": "stroke-dashoffset 1→0, 1.1s cubic-bezier(0.65, 0, 0.35, 1)", "purpose": "The single authored entrance: pin traces draw in once on load, then rest solid." },
-      { "name": "state-transition", "value": "0.18-0.2s ease", "purpose": "Hover/focus state feedback (border color, fill shift, color)." }
+      {
+        "name": "fade-up",
+        "value": "opacity 0→1, translateY 8px→0, 0.5s ease",
+        "purpose": "Subtle entrance animation respecting prefers-reduced-motion."
+      },
+      {
+        "name": "dock-transition",
+        "value": "0.25s ease",
+        "purpose": "Smooth transition between floating hero nav and sticky pill dock."
+      },
+      {
+        "name": "double-scroll",
+        "value": "Sticky pinned viewport with scroll-driven list translation",
+        "purpose": "Pins recent publications while user scrolls 8 newest items."
+      }
     ],
     "breakpoints": [
-      { "name": "tablet", "value": "900px", "purpose": "Die blocks 3→2 columns." },
-      { "name": "mobile", "value": "768px", "purpose": "All grids collapse to one column." },
-      { "name": "narrow", "value": "600px", "purpose": "Die blocks 2→1 columns; hero meta hidden." }
+      {
+        "name": "tablet",
+        "value": "900px",
+        "purpose": "Footer 4→2 columns."
+      },
+      {
+        "name": "mobile",
+        "value": "768px",
+        "purpose": "Grids collapse to 1 column; double-scroll unpins to static list."
+      }
     ]
   },
   "components": [
     {
-      "name": "Pad (button / chip / filter)",
-      "kind": "button",
-      "refersTo": "pad",
-      "description": "Flat hairline-bordered control; active state wears interconnect gold.",
-      "html": "<button class=\"ds-pad\">Research</button>",
-      "css": ".ds-pad { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.55rem 0.9rem; border: 1px solid rgba(242,239,230,0.14); border-radius: 3px; background: rgba(127,179,213,0.06); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.06em; color: #b8c6d4; transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease; } .ds-pad:hover { border-color: #7fb3d5; color: #f2efe6; background: rgba(127,179,213,0.10); } .ds-pad:focus-visible { outline: 2px solid #c9a35c; outline-offset: 3px; }"
-    },
-    {
-      "name": "Active Pad",
-      "kind": "button",
-      "refersTo": "pad-active",
-      "description": "The active route/filter — gold border and text, the one active voice on the viewport.",
-      "html": "<button class=\"ds-pad ds-pad-active\">Research</button>",
-      "css": ".ds-pad-active { border-color: #c9a35c; color: #c9a35c; background: rgba(201,163,92,0.08); }"
-    },
-    {
-      "name": "Die Block (research / project cell)",
-      "kind": "card",
-      "refersTo": "die-block",
-      "description": "Placed cell on the floorplan: cell code, title, description, topics, routed links.",
-      "html": "<article class=\"ds-block\"><header class=\"ds-block-head\"><span class=\"ds-cell-code\">01</span><span class=\"ds-cell-name\">IN-MEMORY COMPUTING</span></header><p class=\"ds-block-desc\">Computing inside the memory array.</p><a class=\"ds-pin\">Code</a></article>",
-      "css": ".ds-block { display: flex; flex-direction: column; gap: 1rem; padding: 1.25rem; border: 1px solid rgba(242,239,230,0.14); border-radius: 4px; background: linear-gradient(180deg, rgba(127,179,213,0.05) 0%, rgba(16,19,25,0) 100%); min-height: 100%; transition: border-color 0.2s ease, transform 0.2s ease; } .ds-block:hover { border-color: #7fb3d5; transform: translateY(-2px); } .ds-block-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; } .ds-cell-code { font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; letter-spacing: 0.08em; color: #7fb3d5; border: 1px solid rgba(127,179,213,0.35); border-radius: 3px; padding: 0.1rem 0.375rem; } .ds-cell-name { font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 1rem; color: #f2efe6; text-align: right; } .ds-block-desc { font-size: 0.8125rem; line-height: 1.55; color: #b8c6d4; margin: 0; }"
-    },
-    {
-      "name": "Stat Pad (pad ring)",
+      "name": "Floating Nav / Sticky Dock",
       "kind": "custom",
-      "refersTo": "stat-pad",
-      "description": "A measured statistic on the pad ring: mono value with tabular numerals, tiny unit label.",
-      "html": "<div class=\"ds-stat\"><span class=\"ds-stat-value\">246</span><span class=\"ds-stat-unit\">Citations</span></div>",
-      "css": ".ds-stat { display: flex; flex-direction: column; gap: 0.15rem; padding: 0.7rem 0.9rem; border: 1px solid rgba(242,239,230,0.14); border-radius: 3px; background: rgba(16,19,25,0.72); } .ds-stat-value { font-family: 'JetBrains Mono', monospace; font-size: 1.05rem; font-weight: 500; color: #f2efe6; line-height: 1.1; font-variant-numeric: tabular-nums; } .ds-stat-unit { font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8b9cac; }"
+      "refersTo": "nav-dock",
+      "description": "Floating pill buttons on hero condensing into a centered sticky pill dock on scroll.",
+      "html": "<nav class=\"nav-dock\"><a class=\"chip\">Research</a></nav>",
+      "css": ".nav-dock { display: flex; align-items: center; gap: 0.5rem; background: rgba(16,22,26,0.85); border: 1px solid rgba(233,237,241,0.28); border-radius: 999px; padding: 0.35rem 0.6rem; }"
     },
     {
-      "name": "Pin Link",
+      "name": "Pinned Publications Double-Scroll",
       "kind": "custom",
-      "refersTo": "pin-link",
-      "description": "Inline action with a drawn via dot; hover warms from metal blue to gold.",
-      "html": "<a class=\"ds-pin\"><span class=\"ds-via\"></span>Explore research</a>",
-      "css": ".ds-pin { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #7fb3d5; text-decoration: none; transition: color 0.18s ease; } .ds-pin:hover { color: #c9a35c; } .ds-pin .ds-via { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }"
+      "refersTo": "pinned-pubs",
+      "description": "100vh pinned sticky container inside 250vh track translating 8 publication items.",
+      "html": "<section class=\"pinned-pubs-section\"><div class=\"pinned-pubs-sticky\">...</div></section>",
+      "css": ".pinned-pubs-section { position: relative; min-height: 250vh; } .pinned-pubs-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }"
     }
   ],
   "narrative": {
-    "northStar": "The Silicon Floorplan",
-    "overview": "The SARCS website is drawn the way a chip designer reads a die: placed blocks, routed interconnect, mask-layer annotation, and a pad ring of measured statistics. Every page is a floorplan region of the same die; nothing pretends to be photography. The world is honest engineering graphics — the visitor sees the actual structures of the lab's research laid out as labeled cells with pins routed to their evidence, never stock imagery of someone else's hardware. The palette is silicon materials on deep substrate: oxide-white markings, metal-blue interconnects, and one warm interconnect-gold reserved for the active trace. The type system pairs a confident engineering grotesque (Archivo) with a measurement mono (JetBrains Mono) used only where an engineer would write data. Dark is not a mood choice; it is the substrate color of the mask-grid the world is drawn on, the screen a layout editor sits open on.",
+    "northStar": "Calm Developer System",
+    "overview": "Modeled on a modern, quiet developer aesthetic referencing DeepSeek Harness. Features a scoped 16:9 hero Grainient WebGL window, dynamic floating-to-dock navigation, pinned double-scroll publications, elevated text contrast, and a spread-out multi-column footer.",
     "keyCharacteristics": [
-      "Placed-cell composition: content sits in bordered, labeled regions like die blocks, not floating cards.",
-      "Routed interconnect: SVG traces with 45° miters and via dots draw from blocks toward their destinations; traces draw in once on load, then rest solid.",
-      "Pad-ring data: statistics and controls sit in flat, hairline-bordered pads — never elevated, never glowing.",
-      "Construction honesty: every annotation is real and readable; no decorative chrome, no fake hardware photos, no glass.",
-      "One authored motion moment: the pin-trace draw-in. Everything else is state feedback."
-    ],
-    "rules": [
-      { "name": "The Flat-By-Default Rule", "body": "No element casts a shadow. Depth comes from hairline borders, tonal fills, and the grid — never from elevation. A zero-offset glow is decoration and is banned.", "section": "colors" },
-      { "name": "The Gold Rarity Rule", "body": "Interconnect gold marks the active thing only. Two gold accents on one viewport means neither is active.", "section": "colors" },
-      { "name": "The Oxide Hairline Rule", "body": "Borders and dividers are oxide white at low alpha (14% at rest, 30% at emphasis) — never gray, never black-on-black.", "section": "colors" },
-      { "name": "The No-Eyebrow Rule", "body": "No label sits above a heading. The heading carries its own weight; a die-label may sit beside or below it as annotation, never above it as a teaser.", "section": "typography" },
-      { "name": "The Mono Means Measurement Rule", "body": "JetBrains Mono appears only where a number, code, date, or label is being read — stats, edge codes, tags, navigation. Body copy and long prose are always Archivo.", "section": "typography" }
+      "16:9 hero Grainient WebGL window with dark scrim overlay.",
+      "Solid substrate background on all non-home pages without WebGL mounting.",
+      "Floating pill nav transitioning to sticky condensed pill dock on scroll.",
+      "Pinned double-scroll Recent Publications section with static mobile fallback.",
+      "Elevated WCAG AA/AAA text contrast across all elements."
     ],
     "dos": [
-      "Do draw every figure as a flat, hairline-bordered cell on the grid.",
-      "Do reserve interconnect gold for the active element — one per viewport.",
-      "Do set statistics in JetBrains Mono with tabular numerals.",
-      "Do keep one authored motion moment (the trace draw-in) and nothing more.",
-      "Do theme browser surfaces — selection, scrollbar, focus rings — from the palette."
+      "Do scope WebGL Grainient to the home 16:9 hero window and keep other pages on solid substrate.",
+      "Do ensure all text colors exceed WCAG contrast thresholds against actual rendered backgrounds.",
+      "Do maintain smooth transitions for the floating-to-dock navigation.",
+      "Do provide non-pinned static fallbacks for double-scroll on mobile and for prefers-reduced-motion."
     ],
     "donts": [
-      "Don't use gradients, glass, backdrop-blur, glow, or drop shadows anywhere.",
-      "Don't place a label above a heading — the heading carries itself.",
-      "Don't use monospace for body prose or as a tech costume.",
-      "Don't ship stock photography of hardware the lab does not own; schematic truth beats fake realism.",
-      "Don't let any element overflow the viewport horizontally — grids collapse via CSS media queries, never inline grid definitions."
+      "Don't mount WebGL canvas on non-home pages.",
+      "Don't use glow, glassmorphism, backdrop-blur, gradient text, or drop shadows.",
+      "Don't place artificial labels or eyebrows above headings."
     ]
   }
 }

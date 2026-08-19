@@ -1,21 +1,30 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-/**
- * Navbar — fixed header in floorplan grammar: die label left, route pads right.
- * Active route = interconnect-gold pad. No dropdowns: the pad row scrolls
- * horizontally on narrow screens.
- */
 export default function Navbar() {
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 80);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const isHome = pathname === "/";
+  const isDock = scrolled || !isHome;
 
   const links = [
-    { href: "/research",     label: "Research" },
+    { href: "/research", label: "Research" },
     { href: "/publications", label: "Publications" },
-    { href: "/people",       label: "People" },
-    { href: "/media",        label: "Media" },
+    { href: "/people", label: "People" },
+    { href: "/media", label: "Media" },
   ];
 
   return (
@@ -26,68 +35,142 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 50,
-        background: "var(--substrate)",
-        borderBottom: "1px solid var(--hairline)",
+        pointerEvents: "none",
+        padding: isDock ? "0.75rem 0" : "1.25rem 0",
+        transition: "padding 0.25s ease",
       }}
     >
       <div
         className="container"
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          gap: "1.5rem",
-          height: "4rem",
+          justifyContent: "center",
+          width: "100%",
         }}
       >
-        {/* Brand: die wordmark + cell name */}
-        <Link
-          href="/"
-          style={{ textDecoration: "none", display: "flex", alignItems: "baseline", gap: "0.625rem", flex: "none" }}
+        <div
+          style={{
+            pointerEvents: "auto",
+            width: "100%",
+            maxWidth: "1180px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "1.5rem",
+            background: isDock ? "rgba(16, 22, 26, 0.65)" : "transparent",
+            border: isDock
+              ? "1px solid var(--hairline)"
+              : "1px solid transparent",
+            borderRadius: "12px",
+            padding: isDock
+              ? "0.6rem 1.25rem"
+              : "0",
+            transition: "background 0.25s ease, border-color 0.25s ease, padding 0.25s ease",
+          }}
         >
-          <span
+          {/* Brand */}
+          <Link
+            href="/"
             style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 700,
-              fontSize: "1.125rem",
-              letterSpacing: "0.06em",
-              color: "var(--oxide)",
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "baseline",
+              gap: "0.5rem",
+              flex: "none",
             }}
           >
-            SARCS
-          </span>
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.625rem",
-              letterSpacing: "0.1em",
-              color: "var(--text-muted)",
-            }}
-          >
-            / IIIT HYDERABAD
-          </span>
-        </Link>
+            <span
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 600,
+                fontSize: "1.0625rem",
+                letterSpacing: "0.04em",
+                color: "var(--text-primary)",
+              }}
+            >
+              SARCS
+            </span>
+            <span
+              className="type-mono"
+              style={{
+                fontSize: "0.6875rem",
+                letterSpacing: "0.08em",
+                color: "var(--text-muted)",
+              }}
+            >
+              / IIIT HYDERABAD
+            </span>
+          </Link>
 
-        {/* Route pads */}
-        <nav
-          aria-label="Main navigation"
-          style={{ display: "flex", gap: "0.5rem", overflowX: "auto", scrollbarWidth: "none", padding: "2px 0" }}
-        >
-          {links.map(({ href, label }) => {
-            const isActive = pathname === href || (href !== "/" && pathname.startsWith(href));
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={isActive ? "pad pad-active" : "pad"}
-                style={{ textDecoration: "none", whiteSpace: "nowrap", fontSize: "0.6875rem" }}
-                aria-current={isActive ? "page" : undefined}
-              >
-                {label}
-              </Link>
-            );
-          })}
-        </nav>
+          {/* Links */}
+          <nav
+            aria-label="Main navigation"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: isDock ? "1.25rem" : "0.5rem",
+              overflowX: "auto",
+              scrollbarWidth: "none",
+              padding: "2px 0",
+            }}
+          >
+            {links.map(({ href, label }) => {
+              const isActive =
+                pathname === href ||
+                (href !== "/" && pathname.startsWith(href));
+
+              if (isDock) {
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    style={{
+                      fontSize: "0.8125rem",
+                      fontWeight: 500,
+                      color: isActive ? "var(--text-primary)" : "var(--text-secondary)",
+                      textDecoration: "none",
+                      whiteSpace: "nowrap",
+                      padding: "0.35rem 0",
+                      borderBottom: isActive
+                        ? "2px solid var(--accent)"
+                        : "2px solid transparent",
+                      transition: "color 0.18s ease, border-color 0.18s ease",
+                    }}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {label}
+                  </Link>
+                );
+              }
+
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  style={{
+                    fontSize: "0.8125rem",
+                    fontWeight: 500,
+                    color: isActive ? "var(--accent)" : "var(--text-primary)",
+                    textDecoration: "none",
+                    whiteSpace: "nowrap",
+                    padding: "0.35rem 0.85rem",
+                    borderRadius: "999px",
+                    border: isActive
+                      ? "1px solid var(--accent)"
+                      : "1px solid rgba(233, 237, 241, 0.18)",
+                    background: isActive
+                      ? "rgba(126, 193, 224, 0.15)"
+                      : "rgba(16, 22, 26, 0.45)",
+                    transition: "all 0.18s ease",
+                  }}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
       </div>
     </header>
   );

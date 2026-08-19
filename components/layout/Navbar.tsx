@@ -57,15 +57,18 @@ export default function Navbar() {
             justifyContent: "space-between",
             alignItems: "center",
             gap: "1.5rem",
-            background: isDock ? "rgba(16, 22, 26, 0.65)" : "transparent",
+            background: isDock ? "rgba(16, 22, 26, 0.75)" : "transparent",
+            backdropFilter: isDock ? "blur(18px)" : "none",
+            WebkitBackdropFilter: isDock ? "blur(18px)" : "none",
             border: isDock
-              ? "1px solid var(--hairline)"
+              ? "1px solid var(--hairline-strong)"
               : "1px solid transparent",
             borderRadius: "12px",
             padding: isDock
               ? "0.6rem 1.25rem"
               : "0",
-            transition: "background 0.25s ease, border-color 0.25s ease, padding 0.25s ease",
+            transition:
+              "background 0.25s ease, border-color 0.25s ease, padding 0.25s ease, backdrop-filter 0.25s ease",
           }}
         >
           {/* Brand */}
@@ -157,10 +160,12 @@ export default function Navbar() {
                     borderRadius: "999px",
                     border: isActive
                       ? "1px solid var(--accent)"
-                      : "1px solid rgba(233, 237, 241, 0.18)",
+                      : "1px solid rgba(233, 237, 241, 0.20)",
                     background: isActive
-                      ? "rgba(126, 193, 224, 0.15)"
-                      : "rgba(16, 22, 26, 0.45)",
+                      ? "rgba(126, 193, 224, 0.18)"
+                      : "rgba(16, 22, 26, 0.65)",
+                    backdropFilter: "blur(14px)",
+                    WebkitBackdropFilter: "blur(14px)",
                     transition: "all 0.18s ease",
                   }}
                   aria-current={isActive ? "page" : undefined}

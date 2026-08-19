@@ -7,7 +7,7 @@
   --substrate-trans: rgba(16, 22, 26, 0.65);
   --substrate-hi: #171d22;
   --substrate-deep: #0b0f12;
-  --substrate-card: rgba(23, 29, 34, 0.60);
+  --substrate-card: rgba(23, 29, 34, 0.70);
   --substrate-scrim: rgba(16, 22, 26, 0.92);
 
   /* Raised contrast values for guaranteed WCAG AAA/AA compliance */
@@ -28,7 +28,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -160,6 +160,8 @@ a:hover {
   border: 1px solid var(--hairline);
   border-radius: 4px;
   background: var(--substrate-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.02em;
@@ -175,7 +177,7 @@ a:hover {
 .chip-active {
   border-color: var(--accent);
   color: var(--text-primary);
-  background: rgba(126, 193, 224, 0.15);
+  background: rgba(126, 193, 224, 0.18);
 }
 
 .text-link {
@@ -206,6 +208,8 @@ a:hover {
   border: 1px solid var(--hairline);
   border-radius: 4px;
   background: var(--substrate-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: border-color 0.18s ease;
 }
 
@@ -267,6 +271,12 @@ a:hover {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
   }
+  .pubs-ascii-column {
+    display: none !important;
+  }
+  .pinned-pubs-sticky .container {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -309,7 +319,7 @@ a:hover {
 
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: auto !important;
   }
   .fade-up-entry {
     animation: none !important;

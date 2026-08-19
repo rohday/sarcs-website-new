@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-20T00:25:00Z",
+  "generatedAt": "2026-08-20T00:35:00Z",
   "title": "Design System: SARCS Lab — Calm Developer System",
   "extensions": {
     "colorMeta": {
@@ -64,7 +64,7 @@
       },
       {
         "name": "double-scroll",
-        "value": "Sticky pinned viewport with scroll-driven list translation",
+        "value": "Sticky pinned viewport with scroll-driven list translation and ambient AsciiWaves",
         "purpose": "Pins recent publications while user scrolls 8 newest items."
       }
     ],
@@ -72,7 +72,7 @@
       {
         "name": "tablet",
         "value": "900px",
-        "purpose": "Footer 4→2 columns."
+        "purpose": "Footer 4→2 columns; publications split collapses to single column."
       },
       {
         "name": "mobile",
@@ -86,29 +86,29 @@
       "name": "Floating Nav / Sticky Dock",
       "kind": "custom",
       "refersTo": "nav-dock",
-      "description": "Floating pill buttons on hero condensing into a wide sticky container dock on scroll.",
+      "description": "Floating pill buttons with backdrop blur on hero condensing into a wide sticky container dock on scroll.",
       "html": "<nav class=\"nav-dock\"><a class=\"chip\">Research</a></nav>",
-      "css": ".nav-dock { display: flex; align-items: center; gap: 0.5rem; background: rgba(16,22,26,0.65); border: 1px solid rgba(233,237,241,0.14); border-radius: 12px; padding: 0.6rem 1.25rem; }"
+      "css": ".nav-dock { display: flex; align-items: center; gap: 0.5rem; background: rgba(16,22,26,0.75); backdrop-filter: blur(18px); border: 1px solid rgba(233,237,241,0.14); border-radius: 12px; padding: 0.6rem 1.25rem; }"
     },
     {
       "name": "Pinned Publications Double-Scroll",
       "kind": "custom",
       "refersTo": "pinned-pubs",
-      "description": "100vh pinned sticky container inside 250vh track translating 8 publication items.",
+      "description": "100vh pinned sticky container with left-centered publications and ambient AsciiWaves.",
       "html": "<section class=\"pinned-pubs-section\"><div class=\"pinned-pubs-sticky\">...</div></section>",
       "css": ".pinned-pubs-section { position: relative; min-height: 250vh; } .pinned-pubs-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }"
     }
   ],
   "narrative": {
     "northStar": "Calm Developer System",
-    "overview": "Modeled on a modern, quiet developer aesthetic referencing DeepSeek Harness. Features a scoped 16:9 hero Grainient WebGL window with bottom dissolve fade, wide dynamic floating-to-dock navigation, pinned double-scroll publications, unboxed typography, elevated text contrast, and a spread-out multi-column footer.",
+    "overview": "Modeled on a modern, quiet developer aesthetic referencing DeepSeek Harness. Features a scoped 16:9 hero Grainient WebGL window with bottom dissolve fade, wide dynamic floating-to-dock navigation, pinned double-scroll publications with ambient AsciiWaves, unboxed typography, elevated text contrast with backdrop blur, and a spread-out multi-column footer.",
     "keyCharacteristics": [
       "16:9 hero Grainient WebGL window with dark scrim overlay and smooth bottom dissolve.",
       "Unboxed hero typography directly over the subtle gradient background.",
       "Solid substrate background on all non-home pages without WebGL mounting.",
-      "Floating pill nav transitioning to wide sticky container dock on scroll.",
-      "Pinned double-scroll Recent Publications section with static mobile fallback.",
-      "Elevated WCAG AA/AAA text contrast across all elements."
+      "Floating pill nav with backdrop blur transitioning to wide sticky container dock on scroll.",
+      "Pinned double-scroll Recent Publications section with ambient AsciiWaves.",
+      "Elevated WCAG AA/AAA text contrast with backdrop blur on cards and chips."
     ],
     "dos": [
       "Do scope WebGL Grainient to the home 16:9 hero window and keep other pages on solid substrate.",
@@ -118,7 +118,6 @@
     ],
     "donts": [
       "Don't mount WebGL canvas on non-home pages.",
-      "Don't use glow, glassmorphism, backdrop-blur, gradient text, or drop shadows.",
       "Don't place artificial labels or eyebrows above headings.",
       "Don't enclose hero text in heavy card boxes."
     ]

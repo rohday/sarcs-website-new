@@ -1,12 +1,12 @@
 ---
 name: SARCS Lab — Calm Developer System
-description: A calm, minimal, spacious research-lab website modeled on a modern developer aesthetic, featuring a 16:9 scoped film-grain gradient hero window, dynamic dock navigation, pinned double-scroll publications, Inter typography, and flat hairline surfaces.
+description: A calm, minimal, spacious research-lab website modeled on a modern developer aesthetic, featuring a 16:9 scoped film-grain gradient hero window, dynamic dock navigation, pinned double-scroll publications with ambient AsciiWaves, Inter typography, and flat hairline surfaces with backdrop blur.
 colors:
   substrate: "#10161a"
   substrate-trans: "rgba(16, 22, 26, 0.65)"
   substrate-hi: "#171d22"
   substrate-deep: "#0b0f12"
-  substrate-card: "rgba(23, 29, 34, 0.60)"
+  substrate-card: "rgba(23, 29, 34, 0.70)"
   accent: "#7ec1e0"
   accent-muted: "#5b9ab9"
   alarm: "#e5484d"
@@ -57,17 +57,17 @@ spacing:
   xl: "4rem"
 components:
   chip:
-    backgroundColor: "rgba(23, 29, 34, 0.60)"
+    backgroundColor: "rgba(23, 29, 34, 0.70)"
     textColor: "{colors.text-secondary}"
     rounded: "{rounded.md}"
     padding: "0.35rem 0.75rem"
     border: "1px solid rgba(233, 237, 241, 0.14)"
   chip-active:
-    backgroundColor: "rgba(126, 193, 224, 0.15)"
+    backgroundColor: "rgba(126, 193, 224, 0.18)"
     textColor: "{colors.text-primary}"
     border: "1px solid #7ec1e0"
   surface-card:
-    backgroundColor: "rgba(23, 29, 34, 0.60)"
+    backgroundColor: "rgba(23, 29, 34, 0.70)"
     textColor: "{colors.text-primary}"
     rounded: "{rounded.md}"
     border: "1px solid rgba(233, 237, 241, 0.14)"
@@ -83,17 +83,18 @@ Modeled on a modern, quiet developer aesthetic (referencing the DeepSeek Harness
 
 Key patterns:
 1. **Scoped 16:9 Hero Grainient:** The WebGL film-grain gradient background is scoped strictly to a 16:9 viewport window on the homepage with an overlaid dark scrim for guaranteed text contrast and a seamless bottom dissolve mask into the substrate ground. All other pages render on a solid substrate background.
-2. **Transparent Top Nav to Wide Sticky Pill Dock:** Top navigation links float in individual hairline pill boxes over the hero, condensing smoothly into a full-width sticky container dock on scroll.
-3. **Double-Scroll Publications:** On the homepage, the Recent Publications section pins to the viewport as the user scrolls, smoothly translating the newest 8 publications before unlocking into subsequent sections.
+2. **Transparent Top Nav to Wide Sticky Pill Dock:** Top navigation links float in individual hairline pill boxes with backdrop blur over the hero, condensing smoothly into a full-width sticky container dock on scroll.
+3. **Double-Scroll Publications with Ambient AsciiWaves:** On the homepage, the Recent Publications section pins to the viewport as the user scrolls, with publications left-centered and an ambient AsciiWaves character wave animation alongside.
 4. **Clean Typography & Elevated Contrast:** Inter is used for all primary text, while JetBrains Mono is strictly reserved for metadata. Colors are tuned to exceed WCAG AA/AAA contrast ratios (Primary >= 16:1, Secondary >= 12:1, Muted >= 7:1).
-5. **Spread-out Multi-Column Footer:** Broad multi-column layout separating lab description, navigation index, contact/address, and external profiles.
-6. **Smooth Scrolling:** Site-wide smooth scrolling enabled.
+5. **Backdrop Blur for Legibility:** Cards, pill buttons, and navigation dock utilize glass/backdrop blur (`10-18px`) ensuring sharp, legible text over gradients.
+6. **Spread-out Multi-Column Footer:** Broad multi-column layout separating lab description, navigation index, contact/address, and external profiles.
+7. **Smooth Scrolling:** Site-wide smooth scrolling enabled.
 
 ## Colors
 
 - **Substrate Base** (`#10161a`): Primary background substrate.
 - **Substrate Deep** (`#0b0f12`): Footer ground and base background.
-- **Substrate Card** (`rgba(23, 29, 34, 0.60)`): Slightly translucent surface for cards, panels, and chips.
+- **Substrate Card** (`rgba(23, 29, 34, 0.70)`): Translucent surface for cards, panels, and chips with backdrop blur.
 - **Text Primary** (`#f0f4f8`): High-contrast primary headings and active elements (16.5:1 on substrate).
 - **Text Secondary** (`#cbd5e1`): Body copy and descriptions (12.5:1 on substrate).
 - **Text Muted** (`#94a3b8`): Dates, counts, and metadata (7.2:1 on substrate).
@@ -115,6 +116,5 @@ Key patterns:
 
 ### Don't:
 - **Don't** mount WebGL canvas on non-home pages.
-- **Don't** use glow, glassmorphism, backdrop-blur, gradient text, or drop shadows.
 - **Don't** place artificial labels or eyebrows above headings.
 - **Don't** enclose hero text in heavy card boxes.

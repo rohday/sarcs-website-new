@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import type { Publication } from "@/lib/types";
 import PublicationItem from "@/components/cards/PublicationItem";
+import AsciiWaves from "@/components/animations/AsciiWaves";
 
 export default function PinnedPublications({
   publications,
@@ -22,7 +23,7 @@ export default function PinnedPublications({
 
     const updateScroll = () => {
       if (!containerRef.current || !windowRef.current || !listRef.current) return;
-      if (window.innerWidth <= 768 || isReducedMotion) {
+      if (window.innerWidth <= 900 || isReducedMotion) {
         listRef.current.style.transform = "none";
         return;
       }
@@ -85,77 +86,102 @@ export default function PinnedPublications({
           className="container"
           style={{
             width: "100%",
-            display: "flex",
-            flexDirection: "column",
+            display: "grid",
+            gridTemplateColumns: "1.15fr 0.85fr",
+            gap: "clamp(2rem, 5vw, 4.5rem)",
+            alignItems: "center",
             height: "100%",
-            maxHeight: "80vh",
+            maxHeight: "82vh",
           }}
         >
-          {/* Header inside pinned window */}
+          {/* Left column: Recent publications list */}
           <div
             style={{
               display: "flex",
-              justifyContent: "space-between",
-              alignItems: "baseline",
-              gap: "1rem",
-              flexWrap: "wrap",
-              borderBottom: "1px solid var(--hairline)",
-              paddingBottom: "0.75rem",
-              marginBottom: "0.75rem",
-              flexShrink: 0,
+              flexDirection: "column",
+              height: "100%",
+              overflow: "hidden",
             }}
           >
+            {/* Header */}
             <div
               style={{
                 display: "flex",
+                justifyContent: "space-between",
                 alignItems: "baseline",
-                gap: "0.75rem",
+                gap: "1rem",
                 flexWrap: "wrap",
+                borderBottom: "1px solid var(--hairline)",
+                paddingBottom: "0.875rem",
+                marginBottom: "0.75rem",
+                flexShrink: 0,
               }}
             >
               <h2 className="type-display-md" style={{ margin: 0 }}>
                 Recent publications
               </h2>
-              <span
-                className="type-mono"
-                style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}
+              <Link
+                href="/publications"
+                className="text-link"
+                style={{
+                  padding: "0.3rem 0.75rem",
+                  borderRadius: "999px",
+                  border: "1px solid var(--hairline)",
+                  background: "rgba(23, 29, 34, 0.65)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                }}
               >
-                (Scroll to browse {publications.length} recent)
-              </span>
+                Full archive <span className="arrow" aria-hidden>→</span>
+              </Link>
             </div>
-            <Link
-              href="/publications"
-              className="text-link"
+
+            {/* Scrollable list window */}
+            <div
+              ref={windowRef}
               style={{
-                padding: "0.3rem 0.65rem",
-                borderRadius: "4px",
-                border: "1px solid var(--hairline)",
-                background: "var(--substrate-card)",
+                flex: 1,
+                overflow: "hidden",
+                position: "relative",
               }}
             >
-              Full archive <span className="arrow" aria-hidden>→</span>
-            </Link>
+              <div
+                ref={listRef}
+                style={{
+                  willChange: "transform",
+                }}
+              >
+                {publications.map((pub) => (
+                  <PublicationItem key={pub.id} publication={pub} />
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Scrollable list window */}
+          {/* Right column: AsciiWaves ambient animation (no enclosing box) */}
           <div
-            ref={windowRef}
+            className="pubs-ascii-column"
             style={{
-              flex: 1,
-              overflow: "hidden",
               position: "relative",
+              width: "100%",
+              height: "100%",
+              minHeight: "380px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              overflow: "hidden",
+              pointerEvents: "none",
             }}
+            aria-hidden
           >
-            <div
-              ref={listRef}
-              style={{
-                willChange: "transform",
-              }}
-            >
-              {publications.map((pub) => (
-                <PublicationItem key={pub.id} publication={pub} />
-              ))}
-            </div>
+            <AsciiWaves
+              fontSize={12}
+              waveSpeed={0.7}
+              waveFrequency={0.04}
+              waveAmplitude={24}
+              color="#7ec1e0"
+              secondaryColor="#94a3b8"
+            />
           </div>
         </div>
       </div>

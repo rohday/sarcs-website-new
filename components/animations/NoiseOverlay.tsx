@@ -1,42 +1,125 @@
 "use client";
 
-import { CSSProperties } from "react";
+import { useEffect, useRef, CSSProperties } from "react";
 
 export interface NoiseOverlayProps {
-  opacity?: number;
-  fps?: number;
+  patternSize?: number;
+  patternScaleX?: number;
+  patternScaleY?: number;
+  patternRefreshInterval?: number;
+  patternAlpha?: number;
   className?: string;
   style?: CSSProperties;
 }
 
 export default function NoiseOverlay({
-  opacity = 0.075,
+  patternSize = 256,
+  patternScaleX = 1,
+  patternScaleY = 1,
+  patternRefreshInterval = 2,
+  patternAlpha = 18,
   className = "",
   style,
 }: NoiseOverlayProps) {
-  // SVG feTurbulence noise data URI
-  const noiseSvg =
-    "data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E";
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const isReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    // Offscreen canvas for generating noise pattern tile
+    const offscreen = document.createElement("canvas");
+    offscreen.width = patternSize;
+    offscreen.height = patternSize;
+    const offCtx = offscreen.getContext("2d");
+    if (!offCtx) return;
+
+    const imgData = offCtx.createImageData(patternSize, patternSize);
+    const buf = new Uint32Array(imgData.data.buffer);
+    const len = buf.length;
+
+    const updatePattern = () => {
+      for (let i = 0; i < len; i++) {
+        // Fast random noise generation
+        const val = Math.floor(Math.random() * 256);
+        buf[i] = (patternAlpha << 24) | (val << 16) | (val << 8) | val;
+      }
+      offCtx.putImageData(imgData, 0, 0);
+    };
+
+    let animationFrameId: number | null = null;
+    let frameCount = 0;
+
+    const resize = () => {
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      canvas.width = parent.clientWidth;
+      canvas.height = parent.clientHeight;
+    };
+
+    resize();
+    const ro = new ResizeObserver(resize);
+    if (canvas.parentElement) {
+      ro.observe(canvas.parentElement);
+    }
+
+    const render = () => {
+      frameCount++;
+      if (frameCount % patternRefreshInterval === 0) {
+        updatePattern();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const pattern = ctx.createPattern(offscreen, "repeat");
+        if (pattern) {
+          ctx.fillStyle = pattern;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+
+      if (!isReducedMotion) {
+        animationFrameId = requestAnimationFrame(render);
+      }
+    };
+
+    updatePattern();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const initialPattern = ctx.createPattern(offscreen, "repeat");
+    if (initialPattern) {
+      ctx.fillStyle = initialPattern;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    if (!isReducedMotion) {
+      animationFrameId = requestAnimationFrame(render);
+    }
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      ro.disconnect();
+    };
+  }, [patternSize, patternScaleX, patternScaleY, patternRefreshInterval, patternAlpha]);
 
   return (
-    <div
-      aria-hidden
-      className={`hero-noise-overlay ${className}`.trim()}
+    <canvas
+      ref={canvasRef}
+      className={`hero-noise-canvas ${className}`.trim()}
       style={{
         position: "absolute",
-        inset: "-20%",
-        width: "140%",
-        height: "140%",
-        backgroundImage: `url("${noiseSvg}")`,
-        backgroundRepeat: "repeat",
-        backgroundSize: "160px 160px",
-        opacity,
+        inset: 0,
+        width: "100%",
+        height: "100%",
         pointerEvents: "none",
         mixBlendMode: "overlay",
-        animation: "hero-noise-shift 0.8s steps(4) infinite",
         zIndex: 1,
         ...style,
       }}
+      aria-hidden
     />
   );
 }

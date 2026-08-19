@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-20T01:00:00Z",
+  "generatedAt": "2026-08-20T01:20:00Z",
   "title": "Design System: SARCS Lab — Calm Developer System",
   "extensions": {
     "colorMeta": {
@@ -58,19 +58,14 @@
         "purpose": "Subtle entrance animation respecting prefers-reduced-motion."
       },
       {
-        "name": "hero-noise-shift",
-        "value": "steps(4) 0.8s infinite jitter",
+        "name": "hero-noise",
+        "value": "canvas dynamic film grain at 24-30fps",
         "purpose": "Animated living film-grain overlay on the hero."
       },
       {
         "name": "dock-transition",
         "value": "0.25s ease",
         "purpose": "Smooth transition between floating hero nav and sticky wide dock."
-      },
-      {
-        "name": "wireframe-tumbling",
-        "value": "ogl raymarched icosahedron rotation at speed 0.35",
-        "purpose": "Calm rotating wireframe polyhedron in hero background."
       },
       {
         "name": "double-scroll",
@@ -87,7 +82,7 @@
       {
         "name": "mobile",
         "value": "768px",
-        "purpose": "Grids collapse to 1 column; hero wireframe hides; double-scroll unpins to static list."
+        "purpose": "Grids collapse to 1 column; double-scroll unpins to static list."
       }
     ]
   },
@@ -101,20 +96,12 @@
       "css": ".nav-dock { display: flex; align-items: center; gap: 0.5rem; background: rgba(16,22,26,0.75); backdrop-filter: blur(18px); border: 1px solid rgba(233,237,241,0.14); border-radius: 12px; padding: 0.6rem 1.25rem; }"
     },
     {
-      "name": "Wireframe Ball",
-      "kind": "custom",
-      "refersTo": "wireframe-ball",
-      "description": "Raymarched icosahedron wireframe silhouette in black with soft dark halo.",
-      "html": "<div class=\"hero-wireframe-container\"><WireframeBall /></div>",
-      "css": ".hero-wireframe-container { position: absolute; z-index: 1; pointer-events: none; }"
-    },
-    {
       "name": "Noise Overlay",
       "kind": "custom",
       "refersTo": "noise-overlay",
-      "description": "Animated living film-grain noise overlay with SVG feTurbulence.",
-      "html": "<div class=\"hero-noise-overlay\" />",
-      "css": ".hero-noise-overlay { position: absolute; inset: -20%; opacity: 0.075; pointer-events: none; mix-blend-mode: overlay; animation: hero-noise-shift 0.8s steps(4) infinite; }"
+      "description": "Animated living film-grain noise canvas overlay.",
+      "html": "<NoiseOverlay />",
+      "css": ".hero-noise-canvas { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; }"
     },
     {
       "name": "Pinned Publications Double-Scroll",
@@ -127,10 +114,9 @@
   ],
   "narrative": {
     "northStar": "Calm Developer System",
-    "overview": "Modeled on a modern, quiet developer aesthetic referencing DeepSeek Harness. Features a scoped 16:9 hero Grainient WebGL window with animated noise overlay and rotating black wireframe polyhedron, wide dynamic floating-to-dock navigation, pinned double-scroll publications with ambient AsciiWaves, unboxed typography, elevated text contrast with backdrop blur, and a spread-out multi-column footer.",
+    "overview": "Modeled on a modern, quiet developer aesthetic referencing DeepSeek Harness. Features a scoped 16:9 hero Grainient WebGL window with animated noise overlay, wide dynamic floating-to-dock navigation, pinned double-scroll publications with ambient AsciiWaves, unboxed typography, elevated text contrast with backdrop blur, and a spread-out multi-column footer.",
     "keyCharacteristics": [
-      "16:9 hero Grainient WebGL window with dark scrim overlay, animated noise overlay, and smooth bottom dissolve.",
-      "Black rotating raymarched wireframe polyhedron with dark halo in the hero background.",
+      "16:9 hero Grainient WebGL window with dark scrim overlay, animated film-grain noise, and smooth bottom dissolve.",
       "Unboxed hero typography directly over the subtle gradient background.",
       "Solid substrate background on all non-home pages without WebGL mounting.",
       "Floating pill nav with backdrop blur transitioning to wide sticky container dock on scroll.",

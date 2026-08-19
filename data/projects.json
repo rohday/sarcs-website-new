@@ -1,0 +1,109 @@
+[
+  {
+    "id": "proj-imc",
+    "slug": "in-memory-computing",
+    "title": "In-Memory Computing",
+    "shortDescription": "Developing novel computing paradigms that perform computation directly within memory arrays to overcome the von Neumann bottleneck.",
+    "fullDescription": "In-memory computing (IMC) represents a paradigm shift in computer architecture by performing computations directly within memory arrays, eliminating costly data movement between memory and processing units. Our research focuses on developing efficient IMC architectures for machine learning inference workloads such as CNN, LLM, etc. Exploring both analog and digital implementations using CMOS-silicon DRAM/SRAM memories as well as emerging non-volatile memory technologies such as ReRAM, PCM, and MRAM.",
+    "image": "/images/research/in-memory-computing.png",
+    "topics": [
+      "Digital SRAM In-Memory Computing",
+      "Programmable Mixed-Signal SRAM In-Memory Computing",
+      "ADC/DAC-free In-Memory Computing",
+      "ReRAM-based In-Memory Computing"
+    ],
+    "links": {
+      "github": "https://github.com/BUAA-CI-LAB/Literatures-on-SRAM-based-CIM"
+    },
+    "status": "active",
+    "startYear": 2025
+  },
+  {
+    "id": "proj-riscv",
+    "slug": "riscv-architectures",
+    "title": "RISC-V Architectures",
+    "shortDescription": "Designing and implementing custom RISC-V processors and extensions for specialized computing applications, including edge AI.",
+    "fullDescription": "RISC-V is an open-source instruction set architecture that enables innovation in processor design. Our lab develops custom RISC-V cores with specialized extensions for various application domains, including edge AI. We also contribute to the RISC-V ecosystem through tools, simulators, and educational resources. We also explore superscalar and out-of-order execution models along with vector and matrix processors to enhance performance.",
+    "image": "/images/research/Riscv-architectures.png",
+    "topics": [
+      "Custom RISC-V core implementations",
+      "Vector and matrix extension development",
+      "Open-source processor development"
+    ],
+    "links": {
+      "github": "https://github.com/riscv"
+    },
+    "status": "active",
+    "startYear": 2025
+  },
+  {
+    "id": "proj-accelerators",
+    "slug": "hardware-accelerators",
+    "title": "Hardware Accelerators",
+    "shortDescription": "Building domain-specific accelerators for AI workloads including LLM training and inference using systolic array architectures.",
+    "fullDescription": "Domain-specific hardware accelerators provide orders of magnitude improvement in performance and energy efficiency compared to general-purpose processors. Our research develops accelerator architectures for applications like LLM training and inference, drawing inspiration from designs like Gemmini and Eyeriss. We explore novel dataflow architectures, including systolic arrays, memory hierarchies, and interconnects to optimize throughput and minimize latency.",
+    "image": "/images/research/systolic-array.png",
+    "topics": [
+      "Deep learning accelerator architectures",
+      "Systolic array designs",
+      "Interconnects",
+      "Hardware-software co-design",
+      "Compiler optimizations for accelerators"
+    ],
+    "links": {
+      "github": "https://github.com/ucb-bar/gemmini"
+    },
+    "status": "active",
+    "startYear": 2025
+  },
+  {
+    "id": "proj-quantum",
+    "slug": "quantum-computing",
+    "title": "Quantum Computing",
+    "shortDescription": "Research on quantum computation, quantum machine learning, and circuit-level quantum AI accelerators.",
+    "fullDescription": "Quantum computing represents a new computing paradigm that exploits quantum mechanics principles such as superposition and entanglement to perform information processing beyond classical limits. Our research focuses on the design and simulation of quantum circuits and algorithms, with particular emphasis on quantum machine learning techniques for accelerating classical ML workloads and circuit-level approaches toward quantum AI accelerators.",
+    "image": "/images/research/Quantum-Computing.jpeg",
+    "topics": [
+      "Quantum circuits and gate level design",
+      "Quantum machine learning for classical ML acceleration",
+      "Quantum AI and accelerator-oriented circuit design"
+    ],
+    "links": {},
+    "status": "active",
+    "startYear": 2025
+  },
+  {
+    "id": "proj-edge-ai",
+    "slug": "edge-ai",
+    "title": "Edge AI",
+    "shortDescription": "Designing efficient edge AI systems with hardware-software co-design for low-latency, low-power inference in real-world deployments.",
+    "fullDescription": "Our Edge AI research develops architectures, runtimes, and compiler strategies for deploying AI models under strict constraints in power, latency, and memory. We investigate quantization-aware pipelines, sparsity-aware execution, and accelerator-friendly model transformations to support robust on-device intelligence for sensing, robotics, and embedded systems.",
+    "image": "/images/research/Riscv-architectures.png",
+    "topics": [
+      "TinyML and on-device inference",
+      "Model compression and quantization",
+      "Edge-aware accelerator co-design",
+      "Compiler and runtime optimizations"
+    ],
+    "links": {},
+    "status": "active",
+    "startYear": 2026
+  },
+  {
+    "id": "proj-photonics",
+    "slug": "photonics",
+    "title": "Photonics",
+    "shortDescription": "Exploring photonic computing pathways for high-throughput and energy-efficient AI and signal processing workloads.",
+    "fullDescription": "Photonics-based computing offers the potential for ultra-high bandwidth and improved energy efficiency for selected compute kernels. Our work studies photonic building blocks, architecture-level integration strategies, and system-level co-design to identify where photonics can accelerate next-generation AI, communication, and sensing workloads.",
+    "image": "/images/research/Quantum-Computing.jpeg",
+    "topics": [
+      "Photonic compute primitives",
+      "Electro-photonic co-design",
+      "High-bandwidth interconnects",
+      "AI acceleration using photonic pathways"
+    ],
+    "links": {},
+    "status": "active",
+    "startYear": 2026
+  }
+]

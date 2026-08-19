@@ -1,0 +1,11 @@
+[
+  {
+    "id": "news-1",
+    "date": "2025-12-15",
+    "title": "Paper Accepted at ICEDGE 2025",
+    "description": "Our paper titled 'ProbCIMs: Compute-in-Memory Paradigms for Robust and Efficient Probabilistic Computing & AI' accepted at the Intelligent Computing and Systems at the Edge (ICEDGE) 2025.",
+    "link": "https://icedge.org/list-of-accepted-papers/",
+    "type": "publication",
+    "pinned": false
+  }
+]

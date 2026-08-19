@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <!-- PLACEHOLDER: Replace with actual person photo -->
+  <rect width="300" height="300" fill="#e2e8f0"/>
+  <circle cx="150" cy="120" r="50" fill="#94a3b8"/>
+  <ellipse cx="150" cy="260" rx="80" ry="60" fill="#94a3b8"/>
+  <text x="150" y="285" font-family="system-ui, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Photo</text>
+</svg>

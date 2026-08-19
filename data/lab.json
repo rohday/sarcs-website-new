@@ -1,0 +1,89 @@
+{
+  "name": "SARCS Lab",
+  "fullName": "Sustainable, Advanced and Robust Computing Systems",
+  "tagline": "Computing at the Edge of What's Possible",
+  "stats": {
+    "citations": 246,
+    "hIndex": 8,
+    "since": 2025
+  },
+  "mission": "The SARCS Lab is dedicated to advancing the frontiers of computer architecture, hardware-software co-design, and emerging computing paradigms like photonics, quantum computing and in-memory computing. Our research spans RISC-V architectures, hardware accelerators, compute-in-memory, and AI systems, with a focus on developing efficient, scalable, and sustainable computing solutions for next-generation applications.",
+  "logo": "/images/SARCS_Logo.png",
+  "heroImages": [
+    "/images/bg_img.png",
+    "/images/edge_hardware_hero.jpg",
+    "/images/research/in-memory-computing.png",
+    "/images/research/Riscv-architectures.png",
+    "/images/research/systolic-array.png",
+    "/images/research/Quantum-Computing.jpeg"
+  ],
+  "contact": {
+    "email": "priyesh.shukla@iiit.ac.in",
+    "address": [
+      "A5-318, Vindhya Building,",
+      "International Institute of Information Technology Hyderabad,",
+      "Telangana - 500032,",
+      "India"
+    ],
+    "mapUrl": "https://maps.google.com/?q=IIIT+Hyderabad+Vindhya+Building"
+  },
+  "socialLinks": {
+    "linkedin": "https://www.linkedin.com/in/priyesh-shukla-97b278218/",
+    "twitter": "https://twitter.com/sarcs_lab",
+    "github": "https://github.com/SARCS-Research-Group-IIITH",
+    "googleScholar": "https://scholar.google.com/citations?user=on_nvPYAAAAJ",
+    "youtube": "https://youtube.com/@sarcs-lab"
+  },
+  "affiliations": [
+    {
+      "name": "IIIT Hyderabad",
+      "logo": "/images/affiliations/IIIT_Hyderabad_Logo.jpg",
+      "url": "https://www.iiit.ac.in/"
+    },
+    {
+      "name": "CVEST",
+      "logo": "/images/affiliations/CVEST_Logo.png",
+      "url": "https://cvest.iiit.ac.in/"
+    },
+    {
+      "name": "Google",
+      "logo": "/images/affiliations/google-logo-9808.png",
+      "url": "https://research.google/"
+    },
+    {
+      "name": "Qualcomm",
+      "logo": "/images/affiliations/Qualcomm.svg",
+      "url": "https://www.qualcomm.com/"
+    },
+    {
+      "name": "Andes Technology",
+      "logo": "/images/affiliations/andes.png",
+      "url": "https://www.andestech.com/"
+    },
+    {
+      "name": "Bhashini",
+      "logo": "/images/affiliations/bhashini.png",
+      "url": "https://bhashini.gov.in/"
+    },
+    {
+      "name": "Department of Science & Technology, India",
+      "logo": "/images/affiliations/dst-logo1.jpg",
+      "url": "https://dst.gov.in/"
+    },
+    {
+      "name": "Sampige Semiconductors",
+      "logo": "/images/affiliations/sampige.png",
+      "url": "https://sampigesemi.com/"
+    },
+    {
+      "name": "Sophrosyne Technologies",
+      "logo": "/images/affiliations/sophrosyne-technologies.png",
+      "url": "https://sophrosynetechnologies.com/"
+    },
+    {
+      "name": "University of Illinois Chicago",
+      "logo": "/images/affiliations/uic.webp",
+      "url": "https://www.uic.edu/"
+    }
+  ]
+}

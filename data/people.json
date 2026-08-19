@@ -1,0 +1,132 @@
+{
+  "faculty": [
+    {
+      "id": "faculty-1",
+      "name": "Priyesh Shukla",
+      "photo": "/images/people/Priyesh.jpg",
+      "photoPosition": "50% 40%",
+      "role": "faculty",
+      "degree": "Faculty",
+      "designation": "Assistant Professor, Principal Investigator",
+      "bio": "Prof. Priyesh Shukla leads the SARCS Laboratory at IIIT Hyderabad. His research interests span computer architecture, in-memory computing, hardware accelerators, quantum computing and more. He received his PhD from University of Illinois Chicago and has published in top venues like Nature Communications, TCAS-1, DATE, ICASSP, TVLSI, ISCAS and others.",
+      "researchDomains": ["In-Memory Computing", "Hardware Accelerators", "AI Systems", "Quantum Computing", "Photonics", "RISC-V"],
+      "links": {
+        "email": "priyesh.shukla@iiit.ac.in",
+        "linkedin": "https://www.linkedin.com/in/priyesh-shukla-97b278218/",
+        "googleScholar": "https://scholar.google.com/citations?hl=en&user=on_nvPYAAAAJ&view_op=list_works&sortby=pubdate",
+        "github": "https://github.com/priyeshshukla"
+      }
+    }
+  ],
+  "members": [
+    {
+      "id": "phd-1",
+      "name": "Sirisha",
+      "photo": "/images/people/Sirisha_PhD.jpeg",
+      "photoPosition": "50% 40%",
+      "role": "PhD Student",
+      "degree": "PhD",
+      "program": "PhD",
+      "yearJoined": 2025,
+      "researchDomains": ["LLM Accelerators", "AI for Healthcare", "AI Systems"],
+      "links": {
+        "email": "sirisha.a@research.iiit.ac.in"
+      }
+    },
+    {
+      "id": "ms-1",
+      "name": "Jayadeep K",
+      "photo": "/images/people/Jayadeep.jpg",
+      "photoPosition": "50% 25%",
+      "role": "MS Student",
+      "degree": "MS",
+      "program": "MS",
+      "yearJoined": 2025,
+      "researchDomains": ["Quantum Computing"],
+      "links": {
+        "email": "koya.jayadeep@research.iiit.ac.in",
+        "linkedin": "https://www.linkedin.com/in/jayadeep-k-0b073822a/"
+      }
+    },
+    {
+      "id": "ms-2",
+      "name": "Lokendra Singh",
+      "photo": "/images/people/Lokendra.jpg",
+      "photoPosition": "50% 0%",
+      "role": "MS Student",
+      "degree": "MS",
+      "program": "MS",
+      "yearJoined": 2025,
+      "researchDomains": ["Quantum Computing"],
+      "links": {
+        "email": "lokendra.kanawat@research.iiit.ac.in",
+        "linkedin": "https://www.linkedin.com/in/lokendra-singh-kanawat-a08339246/"
+      }
+    },
+    {
+      "id": "dd-1",
+      "name": "Vedant Pahariya",
+      "photo": "/images/people/Vedant.jpg",
+      "photoPosition": "50% 0%",
+      "role": "Undergraduate Researcher",
+      "degree": "BTech/DD",
+      "program": "ECD",
+      "yearJoined": 2025,
+      "researchDomains": ["RISC-V", "Computer Architecture"],
+      "links": {
+        "email": "vedant.pahariya@research.iiit.ac.in",
+        "linkedin": "https://www.linkedin.com/in/vedant-pahariya/",
+        "github": "https://github.com/VedantPahariya"
+      }
+    },
+    {
+      "id": "dd-2",
+      "name": "Priyanshi Jain",
+      "photo": "/images/people/Priyanshi.jpg",
+      "photoPosition": "50% 50%",
+      "role": "Undergraduate Researcher",
+      "degree": "BTech/DD",
+      "program": "ECD",
+      "yearJoined": 2025,
+      "researchDomains": ["RISC-V", "Compilers"],
+      "links": {
+        "email": "priyanshi.jain@research.iiit.ac.in",
+        "linkedin": "https://www.linkedin.com/in/priyanshi-jain-hf/",
+        "github": "https://github.com/illusion8064"
+      }
+    },
+    {
+      "id": "ug-1",
+      "name": "Siddarth G",
+      "photo": "/images/people/Siddarth.jpg",
+      "photoPosition": "50% 50%",
+      "role": "Undergraduate Researcher",
+      "degree": "BTech/DD",
+      "program": "ECE",
+      "yearJoined": 2025,
+      "researchDomains": ["In-Memory Computing", "Computer Architecture"],
+      "links": {
+        "email": "siddarth.g@students.iiit.ac.in",
+        "github": "https://github.com/iamsid44",
+        "linkedin": "https://www.linkedin.com/in/siddarth-gottumukkula-741b23285/"
+      }
+    },
+    {
+      "id": "ug-2",
+      "name": "M P Samartha",
+      "photo": "/images/people/Samartha.jpg",
+      "photoPosition": "50% 0%",
+      "role": "Undergraduate Researcher",
+      "degree": "BTech/DD",
+      "program": "ECE",
+      "yearJoined": 2025,
+      "researchDomains": ["In-Memory Computing", "Hardware Accelerators"],
+      "links": {
+        "email": "m.samartha@students.iiit.ac.in",
+        "github": "https://github.com/samarthamp",
+        "linkedin": "https://www.linkedin.com/in/samartha-mp/"
+      }
+    }
+  ],
+  "alumni": []
+}

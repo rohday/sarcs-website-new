@@ -1,0 +1,122 @@
+[
+  {
+    "id": "pub-2026-7",
+    "title": "Semantic-Guided 3D Gaussian Splatting for Transient Object Removal",
+    "authors": ["A Prabakaran", "Priyesh Shukla"],
+    "venue": "arXiv preprint arXiv:2602.15516",
+    "year": 2026,
+    "abstract": "This preprint introduces a semantic-guided 3D Gaussian Splatting pipeline to remove transient objects and improve scene consistency in reconstructed environments.",
+    "tags": ["Computer Vision", "3D Reconstruction", "AI Systems"],
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2602.15516",
+      "googleScholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=on_nvPYAAAAJ&citation_for_view=on_nvPYAAAAJ:HDshCWvjkbEC"
+    },
+    "type": "preprint"
+  },
+  {
+    "id": "pub-2026-8",
+    "title": "Bidirectional Quantum Processor Interfacing by a 4-Kelvin Analog Signal Chain for Superconducting Qubit Control and Quantum State Readout",
+    "authors": ["D RV", "L Kanawat", "Priyesh Shukla"],
+    "venue": "arXiv preprint arXiv:2602.14165",
+    "year": 2026,
+    "abstract": "This work proposes a bidirectional 4 K analog signal-chain interface for superconducting qubit control and readout, enabling tighter coupling between cryogenic electronics and quantum processors.",
+    "tags": ["Quantum Computing", "Cryogenic Electronics", "Hardware Systems"],
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2602.14165",
+      "googleScholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=on_nvPYAAAAJ&citation_for_view=on_nvPYAAAAJ:mB3voiENLucC"
+    },
+    "type": "preprint"
+  },
+  {
+    "id": "pub-2026-9",
+    "title": "TernaryLM: Memory-Efficient Language Modeling via Native 1-Bit Quantization with Adaptive Layer-wise Scaling",
+    "authors": ["N Nargund", "Priyesh Shukla"],
+    "venue": "arXiv preprint arXiv:2602.07374",
+    "year": 2026,
+    "abstract": "TernaryLM introduces a memory-efficient language modeling approach with native 1-bit quantization and adaptive layer-wise scaling to retain quality while minimizing footprint.",
+    "tags": ["LLMs", "Model Compression", "Edge AI"],
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2602.07374",
+      "googleScholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=on_nvPYAAAAJ&citation_for_view=on_nvPYAAAAJ:-f6ydRqryjwC"
+    },
+    "type": "preprint"
+  },
+  {
+    "id": "pub-2025-1",
+    "title": "MOSAIC: Collaborative Compute-in-Memory µArrays for Flexible and Scalable Deep Learning",
+    "authors": ["Amit Ranjan Trivedi", "Shamma Nasrin", "Priyesh Shukla", "et al."],
+    "venue": "IEEE 43rd VLSI Test Symposium (VTS), Tempe, AZ, USA",
+    "year": 2025,
+    "abstract": "Compute-in-Memory (CiM) architectures, particularly those leveraging SRAM-based arrays, present significant opportunities for accelerating deep learning by mitigating data movement bottlenecks in traditional von Neumann systems. We propose MOSAIC, a novel CiM architecture designed around three foundational principles: co-designing deep learning operators for CiM, leveraging a memory-immersed digitization approach, and orchestrating inference over a network of compact CiM μArrays.",
+    "tags": ["In-Memory Computing", "Deep Neural Networks", "Edge Computing"],
+    "links": {
+      "doi": "https://ieeexplore.ieee.org/abstract/document/11022889"
+    },
+    "type": "conference"
+  },
+  {
+    "id": "pub-2025-6",
+    "title": "ProbCIMs: Compute-in-Memory Paradigms for Robust and Efficient Probabilistic Computing & AI",
+    "authors": ["Priyesh Shukla", "Amit Ranjan Trivedi", "Siddarth Gottumukkula", "M P Samartha"],
+    "venue": "IEEE International Conference on Intelligent Computing and Systems at the Edge (ICEdge)",
+    "year": 2025,
+    "abstract": "This work presents ProbCIMs, a compute-in-memory driven framework for robust and efficient probabilistic computing and AI workloads at the edge.",
+    "tags": ["In-Memory Computing", "Probabilistic Computing", "Edge AI"],
+    "links": {
+      "googleScholar": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=on_nvPYAAAAJ&citation_for_view=on_nvPYAAAAJ:TQgYirikUcIC"
+    },
+    "type": "conference"
+  },
+  {
+    "id": "pub-2024-2",
+    "title": "Navigating the unknown: Uncertainty-aware compute-in-memory autonomy of edge robotics",
+    "authors": ["Nastaran Darabi", "Priyesh Shukla", "et al."],
+    "venue": "Design, Automation & Test in Europe Conference & Exhibition (DATE), Valencia, Spain",
+    "year": 2024,
+    "abstract": "This paper addresses the challenging problem of energy-efficient and uncertainty-aware pose estimation in insect-scale drones. We introduce CIM-based acceleration of Bayesian filtering methods and variational inference of deep learning models through probabilistic processing.",
+    "tags": ["In-Memory Computing", "Autonomous Navigation", "Edge Robotics"],
+    "links": {
+      "doi": "https://ieeexplore.ieee.org/abstract/document/10546628/"
+    },
+    "type": "conference"
+  },
+  {
+    "id": "pub-2022-3",
+    "title": "MC-CIM: Compute-in-memory with monte-carlo dropouts for bayesian edge intelligence",
+    "authors": ["Priyesh Shukla", "Shamma Nasrin", "et al."],
+    "venue": "IEEE Transactions on Circuits and Systems I: Regular Papers (TCAS I)",
+    "year": 2022,
+    "abstract": "We propose MC-CIM, a compute-in-memory (CIM) framework for robust, yet low power, Bayesian edge intelligence. Using Monte Carlo Dropout approximation to Bayesian DNN, we discuss a novel CIM module that can perform in-memory probabilistic dropout in addition to in-memory weight-input scalar product.",
+    "tags": ["In-Memory Computing", "Bayesian Inference", "Monte-Carlo Dropout"],
+    "links": {
+      "doi": "https://ieeexplore.ieee.org/abstract/document/9972346"
+    },
+    "type": "journal"
+  },
+  {
+    "id": "pub-2021-4",
+    "title": "Ultralow-power localization of insect-scale drones: Interplay of probabilistic filtering and compute-in-memory",
+    "authors": ["Priyesh Shukla", "Ankith Muralidhar", "et al."],
+    "venue": "IEEE Transactions on Very Large Scale Integration (VLSI) Systems",
+    "year": 2021,
+    "abstract": "We propose a novel compute-in-memory (CIM)-based ultralow-power framework for probabilistic localization of insect-scale drones. The proposed localization framework is ~25x energy-efficient than the traditional 8-bit digital GMM-based processor, paving the way for tiny autonomous drones.",
+    "tags": ["In-Memory Computing", "Insect-scale Drones", "Probabilistic Localization"],
+    "links": {
+      "doi": "https://ieeexplore.ieee.org/abstract/document/9508123"
+    },
+    "type": "journal"
+  },
+  {
+    "id": "pub-2020-5",
+    "title": "MC2RAM: Markov Chain Monte Carlo Sampling in SRAM for Fast Bayesian Inference",
+    "authors": ["Priyesh Shukla", "Ahish Shylendra", "et al."],
+    "venue": "IEEE International Symposium on Circuits and Systems (ISCAS), Seville, Spain",
+    "year": 2020,
+    "abstract": "This work discusses the implementation of Markov Chain Monte Carlo (MCMC) sampling from an arbitrary Gaussian mixture model (GMM) within SRAM, enabling high performance Metropolis-Hastings algorithm-based MCMC sampling.",
+    "tags": ["In-Memory Computing", "Markov Chain Monte Carlo", "SRAM"],
+    "links": {
+      "doi": "https://ieeexplore.ieee.org/abstract/document/9180701/"
+    },
+    "type": "conference"
+  }
+]

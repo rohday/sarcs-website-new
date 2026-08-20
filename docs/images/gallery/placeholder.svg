@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <!-- PLACEHOLDER: Replace with actual gallery image -->
+  <rect width="600" height="400" fill="#e2e8f0"/>
+  <rect x="200" y="100" width="200" height="150" rx="8" fill="#cbd5e1"/>
+  <circle cx="260" cy="160" r="30" fill="#94a3b8"/>
+  <polygon points="220,220 300,150 380,220" fill="#94a3b8"/>
+  <text x="300" y="280" font-family="system-ui, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">Image Placeholder</text>
+</svg>

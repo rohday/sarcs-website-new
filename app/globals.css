@@ -348,14 +348,16 @@ a:hover {
 .marquee-mask {
   width: 100%;
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(to right, transparent 0%, black 50px, black calc(100% - 50px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50px, black calc(100% - 50px), transparent 100%);
 }
 
 .marquee-track {
   display: flex;
+  align-items: center;
   width: max-content;
-  animation: marquee-scroll 30s linear infinite;
+  padding: 0.5rem 0;
+  animation: marquee-scroll 32s linear infinite;
 }
 
 .marquee-track:hover {
@@ -364,11 +366,29 @@ a:hover {
 
 .marquee-cell {
   flex: none;
-  width: 120px;
+  padding: 0 0.625rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1rem;
+}
+
+.marquee-card {
+  width: 154px;
+  height: 62px;
+  background: #ffffff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.marquee-card:hover {
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
 @media (prefers-reduced-motion: reduce) {

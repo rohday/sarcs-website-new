@@ -3,13 +3,10 @@ import Grainient from "@/components/backgrounds/Grainient";
 import NoiseOverlay from "@/components/animations/NoiseOverlay";
 import Reveal from "@/components/animations/Reveal";
 import ChipDie3D from "@/components/hero/ChipDie3D";
-import { getLabInfo, getDistinctVenueCount, getActiveProjects } from "@/lib/data";
+import { getLabInfo } from "@/lib/data";
 
 export default function LandingHero() {
   const lab = getLabInfo();
-  const stats = lab.stats;
-  const venueCount = getDistinctVenueCount();
-  const activeProjects = getActiveProjects();
 
   return (
     <section
@@ -144,87 +141,33 @@ export default function LandingHero() {
           <Reveal delay={300}>
             <div
               style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "clamp(2.5rem, 6vw, 4.5rem)",
                 paddingTop: "1.75rem",
                 marginTop: "0.25rem",
                 borderTop: "1px solid var(--hairline)",
+                maxWidth: "620px",
               }}
             >
-              <div>
-                <div
-                  className="tnum"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "1.625rem",
-                    fontWeight: 600,
-                    color: "var(--text-primary)",
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {venueCount}
-                </div>
-                <div
-                  className="type-mono"
-                  style={{
-                    fontSize: "0.75rem",
-                    marginTop: "0.25rem",
-                    color: "var(--text-muted)",
-                  }}
-                >
-                  Venues represented
-                </div>
-              </div>
-
-              <div>
-                <div
-                  className="tnum"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "1.625rem",
-                    fontWeight: 600,
-                    color: "var(--text-primary)",
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {activeProjects.length}
-                </div>
-                <div
-                  className="type-mono"
-                  style={{
-                    fontSize: "0.75rem",
-                    marginTop: "0.25rem",
-                    color: "var(--text-muted)",
-                  }}
-                >
-                  Research tracks
-                </div>
-              </div>
-
-              <div>
-                <div
-                  className="tnum"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "1.625rem",
-                    fontWeight: 600,
-                    color: "var(--text-primary)",
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {stats.since}
-                </div>
-                <div
-                  className="type-mono"
-                  style={{
-                    fontSize: "0.75rem",
-                    marginTop: "0.25rem",
-                    color: "var(--text-muted)",
-                  }}
-                >
-                  Established
-                </div>
+              <blockquote
+                style={{
+                  margin: 0,
+                  color: "var(--text-secondary)",
+                  fontSize: "1.0625rem",
+                  lineHeight: 1.7,
+                  fontStyle: "italic",
+                }}
+              >
+                “Research is to see what everybody else has seen, and to think
+                what nobody else has thought.”
+              </blockquote>
+              <div
+                className="type-mono"
+                style={{
+                  fontSize: "0.75rem",
+                  marginTop: "0.75rem",
+                  color: "var(--text-muted)",
+                }}
+              >
+                Albert Szent-Györgyi
               </div>
             </div>
           </Reveal>

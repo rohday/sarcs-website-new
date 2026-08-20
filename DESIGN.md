@@ -1,6 +1,6 @@
 ---
 name: SARCS Lab — Calm Developer System
-description: A calm, minimal, spacious research-lab website modeled on a modern developer aesthetic, featuring a 16:9 scoped film-grain gradient hero window on home with margin-spread navigation and research thrusts index, dynamic dock navigation, pinned double-scroll publications with ambient AsciiWaves, Inter typography, and flat hairline surfaces with backdrop blur.
+description: A calm, minimal, spacious research-lab website modeled on a modern developer aesthetic, featuring a 16:9 scoped film-grain gradient hero window on home with margin-spread navigation, dynamic dock navigation, pinned double-scroll publications with ambient AsciiWaves, Inter typography, and flat hairline surfaces with backdrop blur.
 colors:
   substrate: "#10161a"
   substrate-trans: "rgba(16, 22, 26, 0.65)"
@@ -82,7 +82,7 @@ components:
 Modeled on a modern, quiet developer aesthetic (referencing the DeepSeek Harness developer landing). The first thing visitors land on is spacious, breathable, and unboxed.
 
 Key patterns:
-1. **Scoped 16:9 Hero on Home with Margin-Aware Layout:** The WebGL film-grain gradient background runs at `timeSpeed={0.6}` and `warpSpeed={2.5}` with living animated canvas noise, dissolving seamlessly into `#10161a`. Hero content uses a balanced 2-column split (title/mission on the left, core research thrusts index on the right margin) over a widened 1360px container.
+1. **Scoped 16:9 Hero on Home:** The WebGL film-grain gradient background runs at `timeSpeed={0.6}` and `warpSpeed={2.5}` with living animated canvas noise, dissolving seamlessly into `#10161a`. Hero content features unboxed, high-contrast typography and key lab metrics over a widened 1360px container.
 2. **Margin-Spread Top Nav to Centered Sticky Dock:** Top navigation links float on the outer page margins over the hero (brand on the left margin, pill chips on the right margin), condensing smoothly into a centered container dock on scroll.
 3. **Double-Scroll Publications with Ambient AsciiWaves:** On the homepage, the Recent Publications section pins to the viewport as the user scrolls, with publications left-centered and an ambient AsciiWaves character wave animation alongside.
 4. **Extensive Publications on `/publications`:** Strip layout with conference acronym badges (`VTS 2025`, `DATE 2024`, `arXiv 2026`) right before the year above each paper, and a right-column basic abstract.

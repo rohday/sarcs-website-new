@@ -99,13 +99,6 @@ a:hover {
   padding: 0 clamp(1.25rem, 4vw, 3.5rem);
 }
 
-.hero-split {
-  display: grid;
-  grid-template-columns: 1.2fr 0.95fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
-}
-
 .hairline {
   width: 100%;
   height: 1px;
@@ -214,10 +207,6 @@ a:hover {
   border-color: var(--hairline-strong);
 }
 
-.thrust-item:hover {
-  background: rgba(126, 193, 224, 0.08) !important;
-}
-
 .footer-grid {
   display: grid;
   grid-template-columns: 2.2fr 1fr 1.6fr 1fr;
@@ -281,10 +270,6 @@ a:hover {
 }
 
 @media (max-width: 900px) {
-  .hero-split {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;

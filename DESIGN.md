@@ -1,6 +1,6 @@
 ---
 name: SARCS Lab — Calm Developer System
-description: A calm, minimal, spacious research-lab website modeled on a modern developer aesthetic, featuring a 16:9 scoped film-grain gradient hero window on home, lighter deep-blue page headers with tactile film grain noise, dynamic dock navigation, pinned double-scroll publications with ambient AsciiWaves, Inter typography, and flat hairline surfaces with backdrop blur.
+description: A calm, minimal, spacious research-lab website modeled on a modern developer aesthetic, featuring a 16:9 scoped film-grain gradient hero window on home with margin-spread navigation and research thrusts index, dynamic dock navigation, pinned double-scroll publications with ambient AsciiWaves, Inter typography, and flat hairline surfaces with backdrop blur.
 colors:
   substrate: "#10161a"
   substrate-trans: "rgba(16, 22, 26, 0.65)"
@@ -82,16 +82,15 @@ components:
 Modeled on a modern, quiet developer aesthetic (referencing the DeepSeek Harness developer landing). The first thing visitors land on is spacious, breathable, and unboxed.
 
 Key patterns:
-1. **Scoped 16:9 Hero on Home:** The WebGL film-grain gradient background runs at `timeSpeed={0.6}` and `warpSpeed={2.5}` with living animated canvas noise, dissolving seamlessly into `#10161a`.
-2. **Lighter Deep-Blue Page Headers with Tactile Film Grain:** Subpages feature a lighter, slightly deeper blue substrate header (`#1e2d3b` -> `#172430` -> `#10161a`) with a canvas film grain noise overlay and smooth bottom fade into the dark ground.
-3. **Transparent Top Nav to Wide Sticky Pill Dock:** Top navigation links float in individual hairline pill boxes with backdrop blur over the hero, condensing smoothly into a full-width sticky container dock on scroll.
-4. **Double-Scroll Publications with Ambient AsciiWaves:** On the homepage, the Recent Publications section pins to the viewport as the user scrolls, with publications left-centered and an ambient AsciiWaves character wave animation alongside.
-5. **Extensive Publications on `/publications`:** Detailed cards with venue acronym badges (`VTS 2025`, `DATE 2024`, `arXiv 2026`), publication types, complete abstracts, and research domain tags.
-6. **Clean Streamlined Gallery:** Gallery images rendered directly in an auto-fill responsive grid without distracting category filter buttons.
-7. **Clean Typography & Elevated Contrast:** Inter is used for all primary text, while JetBrains Mono is strictly reserved for metadata. Colors are tuned to exceed WCAG AA/AAA contrast ratios (Primary >= 16:1, Secondary >= 12:1, Muted >= 7:1).
-8. **Backdrop Blur for Legibility:** Cards, pill buttons, and navigation dock utilize glass/backdrop blur (`10-18px`) ensuring sharp, legible text over gradients.
-9. **Spread-out Multi-Column Footer:** Broad multi-column layout separating lab description, navigation index, contact/address, and external profiles.
-10. **Smooth Scrolling:** Site-wide smooth scrolling enabled.
+1. **Scoped 16:9 Hero on Home with Margin-Aware Layout:** The WebGL film-grain gradient background runs at `timeSpeed={0.6}` and `warpSpeed={2.5}` with living animated canvas noise, dissolving seamlessly into `#10161a`. Hero content uses a balanced 2-column split (title/mission on the left, core research thrusts index on the right margin) over a widened 1360px container.
+2. **Margin-Spread Top Nav to Centered Sticky Dock:** Top navigation links float on the outer page margins over the hero (brand on the left margin, pill chips on the right margin), condensing smoothly into a centered container dock on scroll.
+3. **Double-Scroll Publications with Ambient AsciiWaves:** On the homepage, the Recent Publications section pins to the viewport as the user scrolls, with publications left-centered and an ambient AsciiWaves character wave animation alongside.
+4. **Extensive Publications on `/publications`:** Strip layout with conference acronym badges (`VTS 2025`, `DATE 2024`, `arXiv 2026`) right before the year above each paper, and a right-column basic abstract.
+5. **Clean Streamlined Gallery:** Gallery images rendered directly in an auto-fill responsive grid without distracting category filter buttons.
+6. **Clean Typography & Elevated Contrast:** Inter is used for all primary text, while JetBrains Mono is strictly reserved for metadata. Colors are tuned to exceed WCAG AA/AAA contrast ratios (Primary >= 16:1, Secondary >= 12:1, Muted >= 7:1).
+7. **Backdrop Blur for Legibility:** Cards, pill buttons, and navigation dock utilize glass/backdrop blur (`10-18px`) ensuring sharp, legible text over gradients.
+8. **Spread-out Multi-Column Footer:** Broad multi-column layout separating lab description, navigation index, contact/address, and external profiles.
+9. **Smooth Scrolling:** Site-wide smooth scrolling enabled.
 
 ## Colors
 

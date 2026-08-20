@@ -36,22 +36,24 @@ export default function Navbar() {
         right: 0,
         zIndex: 50,
         pointerEvents: "none",
-        padding: "0.75rem 0",
+        padding: isDock ? "0.75rem 0" : "1.25rem 0",
+        transition: "padding 0.25s ease",
       }}
     >
       <div
-        className="container"
         style={{
           display: "flex",
           justifyContent: "center",
           width: "100%",
+          padding: isDock ? "0 clamp(1.25rem, 4vw, 3rem)" : "0 clamp(1.5rem, 4.5vw, 4rem)",
+          transition: "padding 0.25s ease",
         }}
       >
         <div
           style={{
             pointerEvents: "auto",
             width: "100%",
-            maxWidth: "1180px",
+            maxWidth: isDock ? "1180px" : "100%",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -63,12 +65,12 @@ export default function Navbar() {
               ? "1px solid var(--hairline-strong)"
               : "1px solid transparent",
             borderRadius: "12px",
-            padding: "0.6rem 1.25rem",
+            padding: isDock ? "0.6rem 1.25rem" : "0",
             transition:
-              "background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease",
+              "max-width 0.3s ease, background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease, padding 0.25s ease",
           }}
         >
-          {/* Brand */}
+          {/* Brand — spans to left margin on hero */}
           <Link
             href="/"
             style={{
@@ -102,7 +104,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Links */}
+          {/* Links — spans to right margin on hero */}
           <nav
             aria-label="Main navigation"
             style={{
@@ -153,11 +155,11 @@ export default function Navbar() {
                     color: isActive ? "var(--accent)" : "var(--text-primary)",
                     textDecoration: "none",
                     whiteSpace: "nowrap",
-                    padding: "0.35rem 0.85rem",
+                    padding: "0.4rem 0.95rem",
                     borderRadius: "999px",
                     border: isActive
                       ? "1px solid var(--accent)"
-                      : "1px solid rgba(233, 237, 241, 0.20)",
+                      : "1px solid rgba(233, 237, 241, 0.22)",
                     background: isActive
                       ? "rgba(126, 193, 224, 0.18)"
                       : "rgba(16, 22, 26, 0.65)",

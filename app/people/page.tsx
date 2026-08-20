@@ -98,7 +98,7 @@ export default function PeoplePage() {
               href={`mailto:${labInfo.contact.email}`}
               className="text-link"
             >
-              {labInfo.contact.email} <span className="arrow" aria-hidden>→</span>
+              {labInfo.contact.email}
             </a>
           </div>
 
@@ -134,7 +134,7 @@ export default function PeoplePage() {
               rel="noopener noreferrer"
               className="text-link"
             >
-              Open in Google Maps <span className="arrow" aria-hidden>→</span>
+              Open in Google Maps
             </a>
           </div>
         </div>

@@ -77,7 +77,7 @@ export default function MediaPage() {
                   className="text-link"
                   style={{ whiteSpace: "nowrap" }}
                 >
-                  Read <span className="arrow" aria-hidden>→</span>
+                  Read
                 </a>
               </article>
             ))}

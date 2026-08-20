@@ -15,7 +15,6 @@ export default function Footer({ labInfo }: { labInfo: LabInfo }) {
     { href: labInfo.socialLinks.googleScholar, label: "Google Scholar" },
     { href: labInfo.socialLinks.github, label: "GitHub" },
     { href: labInfo.socialLinks.linkedin, label: "LinkedIn" },
-    { href: labInfo.socialLinks.youtube, label: "YouTube" },
   ].filter((s) => s.href);
 
   return (
@@ -97,14 +96,14 @@ export default function Footer({ labInfo }: { labInfo: LabInfo }) {
               {routes.map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="text-link">
-                    {label} <span className="arrow" aria-hidden>→</span>
+                    {label}
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Col 3: Contact & Address (Spread out) */}
+          {/* Col 3: Contact & Address */}
           <div>
             <h2
               className="type-mono"
@@ -137,15 +136,7 @@ export default function Footer({ labInfo }: { labInfo: LabInfo }) {
                 href={`mailto:${labInfo.contact.email}`}
                 className="text-link"
               >
-                {labInfo.contact.email} <span className="arrow" aria-hidden>→</span>
-              </a>
-              <a
-                href={labInfo.contact.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-link"
-              >
-                Campus Map <span className="arrow" aria-hidden>→</span>
+                {labInfo.contact.email}
               </a>
             </div>
           </div>
@@ -181,7 +172,7 @@ export default function Footer({ labInfo }: { labInfo: LabInfo }) {
                     rel="noopener noreferrer"
                     className="text-link"
                   >
-                    {s.label} <span className="arrow" aria-hidden>→</span>
+                    {s.label}
                   </a>
                 </li>
               ))}

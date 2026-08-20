@@ -132,7 +132,7 @@ export default function PinnedPublications({
                   WebkitBackdropFilter: "blur(12px)",
                 }}
               >
-                Full archive <span className="arrow" aria-hidden>→</span>
+                Full archive
               </Link>
             </div>
 

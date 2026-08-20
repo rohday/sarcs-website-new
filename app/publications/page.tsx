@@ -39,7 +39,7 @@ export default function PublicationsPage() {
           rel="noopener noreferrer"
           className="text-link"
         >
-          Google Scholar profile <span className="arrow" aria-hidden>→</span>
+          Google Scholar profile
         </a>
       </PageHeader>
 

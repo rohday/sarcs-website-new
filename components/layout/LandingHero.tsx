@@ -109,13 +109,13 @@ export default function LandingHero() {
             }}
           >
             <Link href="/research" className="text-link">
-              Research areas <span className="arrow" aria-hidden>→</span>
+              Research areas
             </Link>
             <Link href="/people" className="text-link">
-              People <span className="arrow" aria-hidden>→</span>
+              People
             </Link>
             <Link href="/publications" className="text-link">
-              Publications <span className="arrow" aria-hidden>→</span>
+              Publications
             </Link>
           </div>
 

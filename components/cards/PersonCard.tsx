@@ -24,7 +24,7 @@ function PersonLinksList({ links }: { links: PersonLinks }) {
           rel={i.key === "email" ? undefined : "noopener noreferrer"}
           className="text-link"
         >
-          {i.label} <span className="arrow" aria-hidden>→</span>
+          {i.label}
         </a>
       ))}
     </div>

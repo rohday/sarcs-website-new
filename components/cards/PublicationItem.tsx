@@ -84,7 +84,7 @@ export default function PublicationItem({
             className="text-link"
             style={{ whiteSpace: "nowrap" }}
           >
-            {l.label} <span className="arrow" aria-hidden>→</span>
+            {l.label}
           </a>
         ))}
       </div>

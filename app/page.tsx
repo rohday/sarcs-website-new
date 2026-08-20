@@ -62,10 +62,10 @@ export default function HomePage() {
               }}
             >
               <Link href="/people" className="text-link">
-                Meet the team <span className="arrow" aria-hidden>→</span>
+                Meet the team
               </Link>
               <Link href="/research" className="text-link">
-                Research areas <span className="arrow" aria-hidden>→</span>
+                Research areas
               </Link>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function HomePage() {
               Dispatches
             </h2>
             <Link href="/media" className="text-link">
-              All media <span className="arrow" aria-hidden>→</span>
+              All media
             </Link>
           </div>
 
@@ -164,7 +164,7 @@ export default function HomePage() {
                 className="text-link"
                 style={{ whiteSpace: "nowrap" }}
               >
-                Read <span className="arrow" aria-hidden>→</span>
+                Read
               </a>
             </article>
           ))}
@@ -219,7 +219,7 @@ export default function HomePage() {
                 className="text-link"
                 style={{ whiteSpace: "nowrap" }}
               >
-                Read <span className="arrow" aria-hidden>→</span>
+                Read
               </a>
             </article>
           ))}

@@ -86,7 +86,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               rel="noopener noreferrer"
               className="text-link"
             >
-              {l.label} <span className="arrow" aria-hidden>→</span>
+              {l.label}
             </a>
           ))}
         </div>

@@ -99,3 +99,18 @@ export function getDistinctVenueCount(): number {
   return venues.size;
 }
 
+/** Extracts clean short venue acronym with year (e.g. "VTS 2025", "DATE 2024", "arXiv 2026") */
+export function getPublicationVenueLabel(pub: Publication): string {
+  const v = pub.venue || "";
+  const matchParen = v.match(/\(([A-Za-z0-9\- ]+)\)/);
+  if (matchParen && matchParen[1]) {
+    const acronym = matchParen[1].trim();
+    if (acronym.length <= 10) return `${acronym} ${pub.year}`;
+  }
+  if (v.toLowerCase().includes("arxiv")) return `arXiv ${pub.year}`;
+  if (v.toLowerCase().includes("vlsi systems") || v.toLowerCase().includes("tvlsi")) return `TVLSI ${pub.year}`;
+  if (v.toLowerCase().includes("tcas")) return `TCAS-I ${pub.year}`;
+  return `${pub.year}`;
+}
+
+

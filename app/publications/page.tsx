@@ -53,8 +53,8 @@ export default function PublicationsPage() {
                   alignItems: "baseline",
                   gap: "1rem",
                   borderBottom: "1px solid var(--hairline-strong)",
-                  paddingBottom: "0.5rem",
-                  marginBottom: "0.25rem",
+                  paddingBottom: "0.75rem",
+                  marginBottom: "1.5rem",
                 }}
               >
                 <span
@@ -74,9 +74,9 @@ export default function PublicationsPage() {
                   {byYear[year].length} {byYear[year].length === 1 ? "publication" : "publications"}
                 </span>
               </div>
-              <div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
                 {byYear[year].map((pub) => (
-                  <PublicationItem key={pub.id} publication={pub} />
+                  <PublicationItem key={pub.id} publication={pub} detailed />
                 ))}
               </div>
             </div>

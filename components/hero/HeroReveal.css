@@ -1,0 +1,109 @@
+.hero-reveal-wrapper {
+  position: absolute;
+  right: clamp(1.25rem, 4vw, 3rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: clamp(200px, 20vw, 280px);
+  background: var(--substrate-card);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-reveal-wrapper:hover {
+  border-color: var(--hairline-strong);
+  box-shadow: 0 14px 40px -12px rgba(126, 193, 224, 0.18);
+}
+
+@media (max-width: 900px) {
+  .hero-reveal-wrapper {
+    display: none !important;
+  }
+}
+
+/* Ambient animated dynamically changing monogram center in firstContent */
+.hero-monogram-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.hero-monogram-ring {
+  position: absolute;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  border: 1px dashed rgba(126, 193, 224, 0.35);
+  animation: hero-spin 24s linear infinite;
+  pointer-events: none;
+}
+
+.hero-monogram-ring-outer {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 1px solid rgba(233, 237, 241, 0.08);
+  animation: hero-spin-reverse 32s linear infinite;
+  pointer-events: none;
+}
+
+.hero-monogram-glow {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(126, 193, 224, 0.22) 0%, transparent 70%);
+  animation: hero-breathe 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-monogram-text {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 20px rgba(126, 193, 224, 0.3);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.hero-reveal-wrapper:hover .hero-monogram-text {
+  color: var(--text-primary);
+  transform: scale(1.05);
+}
+
+@keyframes hero-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hero-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes hero-breathe {
+  0%, 100% { transform: scale(0.92); opacity: 0.45; }
+  50% { transform: scale(1.25); opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-monogram-ring,
+  .hero-monogram-ring-outer,
+  .hero-monogram-glow {
+    animation: none !important;
+  }
+}

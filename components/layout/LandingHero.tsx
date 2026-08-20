@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Grainient from "@/components/backgrounds/Grainient";
 import NoiseOverlay from "@/components/animations/NoiseOverlay";
+import HeroReveal from "@/components/hero/HeroReveal";
 import { getLabInfo, getDistinctVenueCount } from "@/lib/data";
 
 export default function LandingHero() {
@@ -180,6 +181,9 @@ export default function LandingHero() {
             </div>
           </div>
         </div>
+
+        {/* ─── Layer 3b: Hover PixelSwap reveal box ─────────────────────── */}
+        <HeroReveal />
       </div>
     </section>
   );

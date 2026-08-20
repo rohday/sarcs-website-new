@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import Preloader from "@/components/layout/Preloader";
 import { getLabInfo } from "@/lib/data";
 import { CONTRACT } from "@/lib/direction-contract";
 
@@ -53,6 +54,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Anti-FOUC script: hides preloader immediately on repeat visits or reduced motion */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(sessionStorage.getItem("sarcs-preload")==="1"||(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)){document.write('<style>#sarcs-preloader{display:none!important}</style>');}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body
         className={`${inter.variable} ${jbmono.variable} min-h-screen flex flex-col`}
       >
@@ -62,6 +71,9 @@ export default function RootLayout({
           style={{ display: "none" }}
           dangerouslySetInnerHTML={{ __html: `<!-- ${CONTRACT} -->` }}
         />
+
+        {/* Once-per-session preloader */}
+        <Preloader />
 
         <div
           style={{

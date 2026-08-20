@@ -1,6 +1,6 @@
 ---
 name: SARCS Lab — Calm Developer System
-description: A calm, minimal, spacious research-lab website modeled on a modern developer aesthetic, featuring a 16:9 scoped film-grain gradient hero window with animated living noise overlay, dynamic dock navigation, pinned double-scroll publications with ambient AsciiWaves, Inter typography, and flat hairline surfaces with backdrop blur.
+description: A calm, minimal, spacious research-lab website modeled on a modern developer aesthetic, featuring a 16:9 scoped film-grain gradient hero window with animated living noise overlay on home, an animated Beams hero on media & dispatches, dynamic dock navigation, pinned double-scroll publications with ambient AsciiWaves, Inter typography, and flat hairline surfaces with backdrop blur.
 colors:
   substrate: "#10161a"
   substrate-trans: "rgba(16, 22, 26, 0.65)"
@@ -82,15 +82,15 @@ components:
 Modeled on a modern, quiet developer aesthetic (referencing the DeepSeek Harness developer landing). The first thing visitors land on is spacious, breathable, and unboxed.
 
 Key patterns:
-1. **Scoped 16:9 Hero with Living Animated Film Grain:**
-   - **Living Noise & Faster Grainient:** The WebGL film-grain gradient background runs at `timeSpeed={0.6}` and `warpSpeed={2.5}` for a visibly alive, calm motion, overlaid with an animated canvas noise layer (`NoiseOverlay`) for living film grain.
-   - **Seamless Dissolve Mask:** Dissolves cleanly into the `#10161a` substrate ground.
-2. **Transparent Top Nav to Wide Sticky Pill Dock:** Top navigation links float in individual hairline pill boxes with backdrop blur over the hero, condensing smoothly into a full-width sticky container dock on scroll.
-3. **Double-Scroll Publications with Ambient AsciiWaves:** On the homepage, the Recent Publications section pins to the viewport as the user scrolls, with publications left-centered and an ambient AsciiWaves character wave animation alongside.
-4. **Clean Typography & Elevated Contrast:** Inter is used for all primary text, while JetBrains Mono is strictly reserved for metadata. Colors are tuned to exceed WCAG AA/AAA contrast ratios (Primary >= 16:1, Secondary >= 12:1, Muted >= 7:1).
-5. **Backdrop Blur for Legibility:** Cards, pill buttons, and navigation dock utilize glass/backdrop blur (`10-18px`) ensuring sharp, legible text over gradients.
-6. **Spread-out Multi-Column Footer:** Broad multi-column layout separating lab description, navigation index, contact/address, and external profiles.
-7. **Smooth Scrolling:** Site-wide smooth scrolling enabled.
+1. **Scoped 16:9 Hero on Home:** The WebGL film-grain gradient background runs at `timeSpeed={0.6}` and `warpSpeed={2.5}` with living animated canvas noise, dissolving seamlessly into `#10161a`.
+2. **Media Hero with Animated Beams:** On `/media`, a dedicated hero features lighter substrate tones (`#1e293b` -> `#2c4552`) with OGL volumetric undulating `<Beams />` light ribbons in steel-blue (`#7ec1e0`), dissolving cleanly into `#10161a` with high-contrast text.
+3. **Transparent Top Nav to Wide Sticky Pill Dock:** Top navigation links float in individual hairline pill boxes with backdrop blur over the hero, condensing smoothly into a full-width sticky container dock on scroll.
+4. **Double-Scroll Publications with Ambient AsciiWaves:** On the homepage, the Recent Publications section pins to the viewport as the user scrolls, with publications left-centered and an ambient AsciiWaves character wave animation alongside.
+5. **Clean Streamlined Gallery:** Gallery images rendered directly in an auto-fill responsive grid without distracting category filter buttons.
+6. **Clean Typography & Elevated Contrast:** Inter is used for all primary text, while JetBrains Mono is strictly reserved for metadata. Colors are tuned to exceed WCAG AA/AAA contrast ratios (Primary >= 16:1, Secondary >= 12:1, Muted >= 7:1).
+7. **Backdrop Blur for Legibility:** Cards, pill buttons, and navigation dock utilize glass/backdrop blur (`10-18px`) ensuring sharp, legible text over gradients.
+8. **Spread-out Multi-Column Footer:** Broad multi-column layout separating lab description, navigation index, contact/address, and external profiles.
+9. **Smooth Scrolling:** Site-wide smooth scrolling enabled.
 
 ## Colors
 
@@ -111,12 +111,12 @@ Key patterns:
 ## Do's and Don'ts
 
 ### Do:
-- **Do** scope WebGL Grainient and NoiseOverlay to the home 16:9 hero window and keep other pages on solid substrate.
+- **Do** scope WebGL Grainient and NoiseOverlay to the home 16:9 hero window and keep other pages on solid substrate (except Media hero Beams).
 - **Do** ensure all text colors exceed WCAG contrast thresholds against actual rendered backgrounds.
 - **Do** maintain smooth transitions for the floating-to-dock navigation.
 - **Do** provide non-pinned static fallbacks for double-scroll on mobile and for `prefers-reduced-motion`.
 
 ### Don't:
-- **Don't** mount WebGL canvas on non-home pages.
+- **Don't** mount unoptimized or memory-heavy components.
 - **Don't** place artificial labels or eyebrows above headings.
 - **Don't** enclose hero text in heavy card boxes.

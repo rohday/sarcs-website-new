@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getMedia, getNews } from "@/lib/data";
-import PageHeader from "@/components/ui/PageHeader";
+import MediaHero from "@/components/layout/MediaHero";
 import Section from "@/components/ui/Section";
 import MediaGallery from "@/components/cards/MediaGallery";
 
@@ -16,13 +16,10 @@ export default function MediaPage() {
 
   return (
     <div>
-      <PageHeader
-        title="Media &amp; Dispatches"
-        description="Paper acceptances, conference appearances, and life inside the laboratory."
-      />
+      <MediaHero />
 
       {news.length > 0 && (
-        <Section style={{ paddingBottom: "clamp(3rem, 6vw, 5rem)" }}>
+        <Section style={{ paddingTop: "clamp(2.5rem, 5vw, 4rem)", paddingBottom: "clamp(3rem, 6vw, 5rem)" }}>
           <h2
             className="type-display-md"
             style={{ margin: "0 0 1.5rem" }}

@@ -7,15 +7,15 @@ export default function MediaHero() {
       style={{
         position: "relative",
         width: "100%",
-        minHeight: "420px",
-        maxHeight: "560px",
+        minHeight: "560px",
+        maxHeight: "720px",
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
       }}
     >
-      {/* ─── Layer 0: Lighter top substrate background tint ─────────────── */}
+      {/* ─── Layer 0: Lighter, colorful gradient background ──────────────── */}
       <div
         aria-hidden
         style={{
@@ -24,11 +24,11 @@ export default function MediaHero() {
           zIndex: 0,
           pointerEvents: "none",
           background:
-            "linear-gradient(180deg, #1e293b 0%, #17202a 50%, #10161a 100%)",
+            "linear-gradient(180deg, #2c4552 0%, #253945 35%, #1b2630 65%, #10161a 100%)",
         }}
       />
 
-      {/* ─── Layer 1: Animated Beams with bottom dissolve mask ─────────── */}
+      {/* ─── Layer 1: ReactBits Three.js/R3F Beams (Full width & height) ─── */}
       <div
         aria-hidden
         style={{
@@ -37,22 +37,24 @@ export default function MediaHero() {
           zIndex: 1,
           pointerEvents: "none",
           maskImage:
-            "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
+            "linear-gradient(to bottom, black 0%, black 75%, transparent 100%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
+            "linear-gradient(to bottom, black 0%, black 75%, transparent 100%)",
         }}
       >
         <Beams
-          lightColor="#7ec1e0"
+          beamWidth={10}
+          beamHeight={15}
           beamNumber={12}
-          speed={1.2}
-          noiseIntensity={1.6}
-          scale={0.18}
-          rotation={-6}
+          lightColor="#d3eeff"
+          speed={2}
+          noiseIntensity={1.75}
+          scale={0.2}
+          rotation={0}
         />
       </div>
 
-      {/* ─── Layer 2: Dark scrim overlay for guaranteed text contrast ──────── */}
+      {/* ─── Layer 2: Dark scrim overlay for guaranteed high-contrast text ─ */}
       <div
         aria-hidden
         style={{
@@ -61,18 +63,18 @@ export default function MediaHero() {
           zIndex: 2,
           pointerEvents: "none",
           background:
-            "linear-gradient(180deg, rgba(11, 15, 18, 0.20) 0%, rgba(11, 15, 18, 0.45) 50%, rgba(16, 22, 26, 0.90) 80%, #10161a 100%)",
+            "linear-gradient(180deg, rgba(11, 15, 18, 0.15) 0%, rgba(11, 15, 18, 0.40) 45%, rgba(16, 22, 26, 0.88) 80%, #10161a 100%)",
         }}
       />
 
-      {/* ─── Layer 3: Hero content ────────────────────────────────────────── */}
+      {/* ─── Layer 3: Hero content brought down with generous spacing ────── */}
       <div
         className="container"
         style={{
           position: "relative",
           zIndex: 3,
-          paddingTop: "3rem",
-          paddingBottom: "2.5rem",
+          paddingTop: "5.5rem",
+          paddingBottom: "3.5rem",
         }}
       >
         <div
@@ -81,7 +83,7 @@ export default function MediaHero() {
             maxWidth: "760px",
             display: "flex",
             flexDirection: "column",
-            gap: "1rem",
+            gap: "1.25rem",
           }}
         >
           <span

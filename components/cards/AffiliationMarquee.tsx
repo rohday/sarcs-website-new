@@ -34,11 +34,11 @@ export default function AffiliationMarquee() {
                   <Image
                     src={a.logo}
                     alt={a.name}
-                    width={120}
-                    height={36}
+                    width={150}
+                    height={50}
                     style={{
-                      maxHeight: "36px",
-                      maxWidth: "110px",
+                      maxHeight: "50px",
+                      maxWidth: "140px",
                       width: "auto",
                       height: "auto",
                       objectFit: "contain",

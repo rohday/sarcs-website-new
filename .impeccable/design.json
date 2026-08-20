@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-20T06:47:00Z",
+  "generatedAt": "2026-08-20T07:10:00Z",
   "title": "Design System: SARCS Lab — Calm Developer System",
   "extensions": {
     "colorMeta": {
@@ -60,12 +60,7 @@
       {
         "name": "hero-noise",
         "value": "canvas dynamic film grain at 24-30fps",
-        "purpose": "Animated living film-grain overlay on the hero."
-      },
-      {
-        "name": "beams-undulation",
-        "value": "OGL simplex noise displaced light ribbons on /media hero",
-        "purpose": "Atmospheric undulating volumetric light beams on Media hero."
+        "purpose": "Animated living film-grain overlay on hero headers."
       },
       {
         "name": "dock-transition",
@@ -101,14 +96,6 @@
       "css": ".nav-dock { display: flex; align-items: center; gap: 0.5rem; background: rgba(16,22,26,0.75); backdrop-filter: blur(18px); border: 1px solid rgba(233,237,241,0.14); border-radius: 12px; padding: 0.6rem 1.25rem; }"
     },
     {
-      "name": "Beams",
-      "kind": "custom",
-      "refersTo": "beams",
-      "description": "Animated undulating light ribbon beams using OGL with 3D simplex noise displacement.",
-      "html": "<Beams lightColor=\"#7ec1e0\" />",
-      "css": ".beams-container { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; }"
-    },
-    {
       "name": "Noise Overlay",
       "kind": "custom",
       "refersTo": "noise-overlay",
@@ -127,25 +114,25 @@
   ],
   "narrative": {
     "northStar": "Calm Developer System",
-    "overview": "Modeled on a modern, quiet developer aesthetic referencing DeepSeek Harness. Features a scoped 16:9 hero Grainient WebGL window with animated noise overlay on home, a dedicated Beams hero on media & dispatches, wide dynamic floating-to-dock navigation, pinned double-scroll publications with ambient AsciiWaves, unboxed typography, elevated text contrast with backdrop blur, and a spread-out multi-column footer.",
+    "overview": "Modeled on a modern, quiet developer aesthetic referencing DeepSeek Harness. Features a scoped 16:9 hero Grainient WebGL window on home, lighter deep-blue page headers with tactile film-grain noise and smooth bottom dissolve on all subpages, wide dynamic floating-to-dock navigation, pinned double-scroll publications with ambient AsciiWaves, extensive publications on /publications, unboxed typography, elevated text contrast with backdrop blur, and a spread-out multi-column footer.",
     "keyCharacteristics": [
-      "16:9 hero Grainient WebGL window with dark scrim overlay, animated film-grain noise, and smooth bottom dissolve.",
-      "Dedicated Media & Dispatches hero with OGL Beams light ribbons and top lighter substrate fade.",
+      "16:9 hero Grainient WebGL window with dark scrim overlay and animated film-grain noise on home.",
+      "Lighter deep-blue page headers with canvas film-grain noise and smooth bottom dissolve on all subpages.",
       "Unboxed hero typography directly over the subtle gradient background.",
-      "Solid substrate background on other subpages without unnecessary WebGL mounting.",
       "Floating pill nav with backdrop blur transitioning to wide sticky container dock on scroll.",
       "Pinned double-scroll Recent Publications section with ambient AsciiWaves.",
+      "Extensive publication cards with conference acronyms, abstracts, and tags on /publications.",
       "Streamlined gallery grid without distracting category filter buttons.",
       "Elevated WCAG AA/AAA text contrast with backdrop blur on cards and chips."
     ],
     "dos": [
-      "Do scope WebGL Grainient and NoiseOverlay to the home 16:9 hero window and Beams to the Media hero.",
+      "Do scope WebGL Grainient to the home 16:9 hero window and keep other pages lightweight with CSS gradients and canvas noise.",
       "Do ensure all text colors exceed WCAG contrast thresholds against actual rendered backgrounds.",
       "Do maintain smooth transitions for the floating-to-dock navigation.",
       "Do provide non-pinned static fallbacks for double-scroll on mobile and for prefers-reduced-motion."
     ],
     "donts": [
-      "Don't mount unoptimized or memory-heavy components.",
+      "Don't mount unoptimized or memory-heavy components on subpages.",
       "Don't place artificial labels or eyebrows above headings.",
       "Don't enclose hero text in heavy card boxes."
     ]

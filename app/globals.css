@@ -53,6 +53,15 @@ body {
   overflow: hidden;
 }
 
+@keyframes grainient-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 ::selection {
   background: var(--accent);
   color: var(--substrate-deep);
@@ -256,19 +265,6 @@ a:hover {
   animation: fade-up 0.5s ease forwards;
 }
 
-@keyframes hero-noise-shift {
-  0% { transform: translate(0, 0); }
-  20% { transform: translate(-3%, -5%); }
-  40% { transform: translate(4%, 2%); }
-  60% { transform: translate(-5%, 3%); }
-  80% { transform: translate(2%, -4%); }
-  100% { transform: translate(0, 0); }
-}
-
-.hero-wireframe-container {
-  display: block;
-}
-
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -283,9 +279,6 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-  .hero-wireframe-container {
-    display: none !important;
-  }
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 2.25rem;
@@ -418,9 +411,6 @@ a:hover {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
-  }
-  .hero-noise-overlay {
-    animation: none !important;
   }
   .pinned-pubs-section {
     min-height: auto !important;

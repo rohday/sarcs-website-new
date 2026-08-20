@@ -32,9 +32,11 @@ export default function LandingHero() {
           zIndex: 0,
           pointerEvents: "none",
           maskImage:
-            "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
+            "linear-gradient(to bottom, black 0%, black 72%, transparent 92%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
+            "linear-gradient(to bottom, black 0%, black 72%, transparent 92%)",
+          opacity: 0,
+          animation: "grainient-fade-in 1.2s ease-out forwards",
         }}
       >
         <Grainient timeSpeed={0.6} warpSpeed={2.5} />
@@ -65,7 +67,7 @@ export default function LandingHero() {
           zIndex: 2,
           pointerEvents: "none",
           background:
-            "linear-gradient(180deg, rgba(11, 15, 18, 0.20) 0%, rgba(11, 15, 18, 0.50) 45%, rgba(16, 22, 26, 0.90) 80%, #10161a 100%)",
+            "linear-gradient(180deg, rgba(11, 15, 18, 0.20) 0%, rgba(11, 15, 18, 0.50) 40%, rgba(16, 22, 26, 0.90) 70%, #10161a 85%)",
         }}
       />
 

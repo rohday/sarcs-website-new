@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, type ElementType } from "react";
+import { useEffect, useRef, type CSSProperties, type ElementType, type ReactNode } from "react";
 
 interface RevealProps {
-  children: React.ReactNode;
+  children: ReactNode;
   delay?: number;
   as?: ElementType;
   className?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 export default function Reveal({
@@ -17,7 +17,7 @@ export default function Reveal({
   className = "",
   style = {},
 }: RevealProps) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -44,12 +44,9 @@ export default function Reveal({
 
   return (
     <Component
-      ref={ref as unknown as React.Ref<never>}
+      ref={ref as never}
       className={`reveal ${className}`.trim()}
-      style={{
-        transitionDelay: `${delay}ms`,
-        ...style,
-      }}
+      style={{ transitionDelay: `${delay}ms`, ...style }}
     >
       {children}
     </Component>

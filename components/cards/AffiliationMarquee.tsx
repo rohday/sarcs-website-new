@@ -1,15 +1,50 @@
 import Image from "next/image";
 import { getAffiliations } from "@/lib/data";
+import type { Affiliation } from "@/lib/types";
+
+function LogoCell({ affiliation }: { affiliation: Affiliation }) {
+  return (
+    <div className="marquee-cell">
+      <a
+        href={affiliation.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={affiliation.name}
+        className="marquee-card"
+      >
+        <Image
+          src={affiliation.logo}
+          alt={affiliation.name}
+          width={150}
+          height={50}
+          style={{
+            maxHeight: "50px",
+            maxWidth: "140px",
+            width: "auto",
+            height: "auto",
+            objectFit: "contain",
+          }}
+        />
+      </a>
+    </div>
+  );
+}
+
+function LogoRow({ items, reverse }: { items: Affiliation[]; reverse?: boolean }) {
+  // Duplicate 4x for a smooth infinite wrap at any screen width.
+  const doubled = [...items, ...items, ...items, ...items];
+  return (
+    <div className={`marquee-track${reverse ? " marquee-track-reverse" : ""}`}>
+      {doubled.map((a, i) => (
+        <LogoCell key={`${a.name}-${i}`} affiliation={a} />
+      ))}
+    </div>
+  );
+}
 
 export default function AffiliationMarquee() {
   const affiliations = getAffiliations();
   const half = Math.ceil(affiliations.length / 2);
-  const row1 = affiliations.slice(0, half);
-  const row2 = affiliations.slice(half);
-
-  // Duplicate each row 4x for smooth infinite wrap on all screen widths
-  const row1Items = [...row1, ...row1, ...row1, ...row1];
-  const row2Items = [...row2, ...row2, ...row2, ...row2];
 
   return (
     <div style={{ overflow: "hidden", padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
@@ -29,63 +64,8 @@ export default function AffiliationMarquee() {
         </span>
         <div className="marquee-mask">
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            {/* Row 1: Right to left */}
-            <div className="marquee-track">
-              {row1Items.map((a, i) => (
-                <div key={`r1-${a.name}-${i}`} className="marquee-cell">
-                  <a
-                    href={a.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title={a.name}
-                    className="marquee-card"
-                  >
-                    <Image
-                      src={a.logo}
-                      alt={a.name}
-                      width={150}
-                      height={50}
-                      style={{
-                        maxHeight: "50px",
-                        maxWidth: "140px",
-                        width: "auto",
-                        height: "auto",
-                        objectFit: "contain",
-                      }}
-                    />
-                  </a>
-                </div>
-              ))}
-            </div>
-
-            {/* Row 2: Left to right */}
-            <div className="marquee-track marquee-track-reverse">
-              {row2Items.map((a, i) => (
-                <div key={`r2-${a.name}-${i}`} className="marquee-cell">
-                  <a
-                    href={a.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title={a.name}
-                    className="marquee-card"
-                  >
-                    <Image
-                      src={a.logo}
-                      alt={a.name}
-                      width={150}
-                      height={50}
-                      style={{
-                        maxHeight: "50px",
-                        maxWidth: "140px",
-                        width: "auto",
-                        height: "auto",
-                        objectFit: "contain",
-                      }}
-                    />
-                  </a>
-                </div>
-              ))}
-            </div>
+            <LogoRow items={affiliations.slice(0, half)} />
+            <LogoRow items={affiliations.slice(half)} reverse />
           </div>
         </div>
       </div>

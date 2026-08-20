@@ -27,174 +27,129 @@ export default function PublicationItem({
   if (detailed) {
     return (
       <article
-        className="surface-card"
         style={{
-          padding: "clamp(1.25rem, 3vw, 1.75rem)",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
+          padding: "1.75rem 0",
+          borderBottom: "1px solid var(--hairline)",
+          display: "grid",
+          gridTemplateColumns: publication.abstract
+            ? "minmax(0, 1.25fr) minmax(0, 1fr)"
+            : "1fr",
+          gap: "clamp(1.5rem, 4vw, 3rem)",
+          alignItems: "start",
         }}
+        className="pub-detailed-row"
       >
-        {/* Top bar: Venue Acronym Badge + Type + Action Links */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
-            gap: "0.75rem",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
-            <span
-              className="type-mono"
-              style={{
-                fontSize: "0.8125rem",
-                fontWeight: 600,
-                color: "var(--accent)",
-                letterSpacing: "0.04em",
-                background: "rgba(126, 193, 224, 0.12)",
-                padding: "0.2rem 0.6rem",
-                borderRadius: "4px",
-                border: "1px solid rgba(126, 193, 224, 0.28)",
-              }}
-            >
-              {venueLabel}
-            </span>
-            {publication.type && (
-              <span
-                className="chip"
-                style={{
-                  fontSize: "0.6875rem",
-                  padding: "0.2rem 0.5rem",
-                  textTransform: "capitalize",
-                }}
-              >
-                {publication.type}
-              </span>
-            )}
-          </div>
-
-          <div
+        {/* Left Column: Conference name before year above paper, title, authors, venue, links */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.45rem" }}>
+          {/* Conference name right before the year above paper */}
+          <span
+            className="type-mono"
             style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "1.125rem",
-              alignItems: "center",
+              fontSize: "0.75rem",
+              fontWeight: 600,
+              color: "var(--accent)",
+              letterSpacing: "0.06em",
+              marginBottom: "0.15rem",
             }}
           >
-            {links.map((l) => (
+            {venueLabel}
+          </span>
+
+          <h3
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "1.0625rem",
+              fontWeight: 600,
+              color: "var(--text-primary)",
+              margin: 0,
+              lineHeight: 1.45,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            {primaryLink ? (
               <a
-                key={l.label}
-                href={l.href}
+                href={primaryLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-link"
+                style={{
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
               >
-                {l.label}
+                {publication.title}
               </a>
-            ))}
-          </div>
-        </div>
+            ) : (
+              publication.title
+            )}
+          </h3>
 
-        {/* Title */}
-        <h3
-          style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(1.0625rem, 2vw, 1.25rem)",
-            fontWeight: 600,
-            color: "var(--text-primary)",
-            margin: 0,
-            lineHeight: 1.4,
-            letterSpacing: "-0.015em",
-          }}
-        >
-          {primaryLink ? (
-            <a
-              href={primaryLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              {publication.title}
-            </a>
-          ) : (
-            publication.title
-          )}
-        </h3>
-
-        {/* Authors */}
-        <p
-          style={{
-            fontSize: "0.875rem",
-            color: "var(--text-secondary)",
-            margin: 0,
-            lineHeight: 1.55,
-          }}
-        >
-          {publication.authors.join(", ")}
-        </p>
-
-        {/* Full Venue details */}
-        <p
-          className="type-mono"
-          style={{
-            fontSize: "0.75rem",
-            color: "var(--text-muted)",
-            margin: 0,
-            lineHeight: 1.5,
-          }}
-        >
-          {publication.venue}
-        </p>
-
-        {/* Abstract */}
-        {publication.abstract && (
           <p
             style={{
               fontSize: "0.875rem",
-              lineHeight: 1.65,
               color: "var(--text-secondary)",
               margin: 0,
-              maxWidth: "75ch",
+              lineHeight: 1.55,
             }}
           >
-            {publication.abstract}
+            {publication.authors.join(", ")}
           </p>
-        )}
 
-        {/* Tags */}
-        {publication.tags && publication.tags.length > 0 && (
-          <div
+          <p
+            className="type-mono"
             style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "0.4rem",
-              paddingTop: "0.25rem",
+              fontSize: "0.75rem",
+              color: "var(--text-muted)",
+              margin: "0.15rem 0 0",
+              lineHeight: 1.5,
             }}
           >
-            {publication.tags.map((tag) => (
-              <span
-                key={tag}
-                className="chip"
-                style={{
-                  fontSize: "0.6875rem",
-                  padding: "0.2rem 0.5rem",
-                }}
-              >
-                {tag}
-              </span>
-            ))}
+            {publication.venue}
+          </p>
+
+          {links.length > 0 && (
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "1rem",
+                paddingTop: "0.5rem",
+              }}
+            >
+              {links.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-link"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Right Column: Basic abstract to the right of the text */}
+        {publication.abstract && (
+          <div style={{ paddingTop: "1.35rem" }}>
+            <p
+              style={{
+                fontSize: "0.84375rem",
+                lineHeight: 1.65,
+                color: "var(--text-secondary)",
+                margin: 0,
+              }}
+            >
+              {publication.abstract}
+            </p>
           </div>
         )}
       </article>
     );
   }
 
-  // Default compact strip for homepage PinnedPublications
+  // Compact strip for homepage PinnedPublications
   return (
     <article
       style={{

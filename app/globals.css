@@ -304,6 +304,10 @@ a:hover {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
+  .pub-detailed-row {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
   .pub-strip > div:last-child,
   .blog-strip > a:last-child {
     justify-self: start;

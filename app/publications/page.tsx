@@ -3,6 +3,7 @@ import { getPublications, getLabInfo } from "@/lib/data";
 import PageHeader from "@/components/ui/PageHeader";
 import Section from "@/components/ui/Section";
 import PublicationItem from "@/components/cards/PublicationItem";
+import Reveal from "@/components/animations/Reveal";
 
 export const metadata: Metadata = {
   title: "Publications",
@@ -46,7 +47,7 @@ export default function PublicationsPage() {
       <Section style={{ paddingBottom: "clamp(3rem, 6vw, 5rem)" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}>
           {years.map((year) => (
-            <div key={year}>
+            <Reveal key={year}>
               <div
                 style={{
                   display: "flex",
@@ -79,7 +80,7 @@ export default function PublicationsPage() {
                   <PublicationItem key={pub.id} publication={pub} detailed />
                 ))}
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Section>

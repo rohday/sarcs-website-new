@@ -3,6 +3,7 @@ import { getMedia, getNews } from "@/lib/data";
 import PageHeader from "@/components/ui/PageHeader";
 import Section from "@/components/ui/Section";
 import MediaGallery from "@/components/cards/MediaGallery";
+import Reveal from "@/components/animations/Reveal";
 
 export const metadata: Metadata = {
   title: "Media",
@@ -23,79 +24,86 @@ export default function MediaPage() {
 
       {news.length > 0 && (
         <Section style={{ paddingBottom: "clamp(3rem, 6vw, 5rem)" }}>
-          <h2
-            className="type-display-md"
-            style={{ margin: "0 0 1.5rem" }}
-          >
-            News Log
-          </h2>
+          <Reveal>
+            <h2
+              className="type-display-md"
+              style={{ margin: "0 0 1.5rem" }}
+            >
+              News Log
+            </h2>
+          </Reveal>
           <div>
-            {news.map((item) => (
-              <article
-                key={item.id}
-                style={{
-                  padding: "1.25rem 0",
-                  borderBottom: "1px solid var(--hairline)",
-                }}
-                className="pub-strip"
-              >
-                <span
-                  className="type-mono tnum"
-                  style={{ fontSize: "0.75rem", whiteSpace: "nowrap" }}
+            {news.map((item, idx) => (
+              <Reveal key={item.id} delay={idx * 60}>
+                <article
+                  style={{
+                    padding: "1.25rem 0",
+                    borderBottom: "1px solid var(--hairline)",
+                  }}
+                  className="pub-strip"
                 >
-                  {new Date(item.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </span>
-                <div>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "1.0625rem",
-                      fontWeight: 600,
-                      color: "var(--text-primary)",
-                      margin: "0 0 0.35rem",
-                      lineHeight: 1.4,
-                    }}
+                  <span
+                    className="type-mono tnum"
+                    style={{ fontSize: "0.75rem", whiteSpace: "nowrap" }}
                   >
-                    {item.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: "0.875rem",
-                      color: "var(--text-secondary)",
-                      margin: 0,
-                      lineHeight: 1.6,
-                    }}
+                    {new Date(item.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </span>
+                  <div>
+                    <h3
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: "1.0625rem",
+                        fontWeight: 600,
+                        color: "var(--text-primary)",
+                        margin: "0 0 0.35rem",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: "0.875rem",
+                        color: "var(--text-secondary)",
+                        margin: 0,
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      {item.description}
+                    </p>
+                  </div>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-link"
+                    style={{ whiteSpace: "nowrap" }}
                   >
-                    {item.description}
-                  </p>
-                </div>
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-link"
-                  style={{ whiteSpace: "nowrap" }}
-                >
-                  Read
-                </a>
-              </article>
+                    Read
+                  </a>
+                </article>
+              </Reveal>
             ))}
           </div>
         </Section>
       )}
 
       <Section style={{ paddingBottom: "clamp(3rem, 6vw, 5rem)" }}>
-        <h2
-          className="type-display-md"
-          style={{ margin: "0 0 1.5rem" }}
-        >
-          Gallery
-        </h2>
-        <MediaGallery items={media} />
+        <Reveal>
+          <h2
+            className="type-display-md"
+            style={{ margin: "0 0 1.5rem" }}
+          >
+            Gallery
+          </h2>
+        </Reveal>
+        <Reveal delay={60}>
+          <MediaGallery items={media} />
+        </Reveal>
       </Section>
     </div>
   );

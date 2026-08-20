@@ -9,6 +9,7 @@ import PageHeader from "@/components/ui/PageHeader";
 import Section from "@/components/ui/Section";
 import PersonCard from "@/components/cards/PersonCard";
 import PeopleFilter from "@/components/cards/PeopleFilter";
+import Reveal from "@/components/animations/Reveal";
 
 export const metadata: Metadata = {
   title: "People",
@@ -32,23 +33,29 @@ export default function PeoplePage() {
 
       {labHead && (
         <Section style={{ paddingBottom: "clamp(3rem, 6vw, 5rem)" }}>
-          <h2
-            className="type-display-md"
-            style={{ margin: "0 0 1.5rem" }}
-          >
-            Principal Investigator
-          </h2>
-          <PersonCard person={labHead} featured />
+          <Reveal>
+            <h2
+              className="type-display-md"
+              style={{ margin: "0 0 1.5rem" }}
+            >
+              Principal Investigator
+            </h2>
+          </Reveal>
+          <Reveal delay={60}>
+            <PersonCard person={labHead} featured />
+          </Reveal>
         </Section>
       )}
 
       <Section style={{ paddingBottom: "clamp(3rem, 6vw, 5rem)" }}>
-        <h2
-          className="type-display-md"
-          style={{ margin: "0 0 1.5rem" }}
-        >
-          Lab Members
-        </h2>
+        <Reveal>
+          <h2
+            className="type-display-md"
+            style={{ margin: "0 0 1.5rem" }}
+          >
+            Lab Members
+          </h2>
+        </Reveal>
         <PeopleFilter
           members={members}
           allDegrees={allDegrees}
@@ -57,9 +64,11 @@ export default function PeoplePage() {
       </Section>
 
       <Section style={{ paddingBottom: "clamp(3rem, 6vw, 5rem)" }}>
-        <h2 className="type-display-md" style={{ margin: "0 0 1.5rem" }}>
-          Contact &amp; Inquiries
-        </h2>
+        <Reveal>
+          <h2 className="type-display-md" style={{ margin: "0 0 1.5rem" }}>
+            Contact &amp; Inquiries
+          </h2>
+        </Reveal>
 
         <div
           className="contact-grid surface-card"

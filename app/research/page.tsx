@@ -3,6 +3,7 @@ import { getActiveProjects } from "@/lib/data";
 import PageHeader from "@/components/ui/PageHeader";
 import Section from "@/components/ui/Section";
 import ProjectCard from "@/components/cards/ProjectCard";
+import Reveal from "@/components/animations/Reveal";
 
 export const metadata: Metadata = {
   title: "Research",
@@ -29,8 +30,10 @@ export default function ResearchPage() {
             gap: "1.5rem",
           }}
         >
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {projects.map((project, idx) => (
+            <Reveal key={project.id} delay={idx * 60}>
+              <ProjectCard project={project} />
+            </Reveal>
           ))}
         </div>
       </Section>
